@@ -21,7 +21,7 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void testToCheckIfCorrectWelcomeMessageIsPrinted() {
+    public void testToCheckIfCorrectWelcomeMessageIsPrintedOnConsole() {
         BibliotecaOutputHandler bibliotecaOutputHandler = new BibliotecaOutputHandler();
         bibliotecaOutputHandler.displayWelcomeMessage();
 
