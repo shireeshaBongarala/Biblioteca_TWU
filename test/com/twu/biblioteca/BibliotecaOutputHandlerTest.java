@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -39,7 +38,7 @@ public class BibliotecaOutputHandlerTest {
         BibliotecaOutputHandler bibliotecaOutputHandler = new BibliotecaOutputHandler();
         bibliotecaOutputHandler.displayListOfBooks();
 
-        ArrayList <String> actualListOfBooks = new ArrayList<String>(Arrays.asList("C Balagurusamy","C++","Java"));
+        ArrayList<String> actualListOfBooks = new ArrayList<String>(Arrays.asList("C Balagurusamy", "C++", "Java"));
 
 
         assertThat(actualListOfBooks.toString(), is(outContent.toString()));
