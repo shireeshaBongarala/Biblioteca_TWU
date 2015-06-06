@@ -8,6 +8,6 @@ public class BibliotecaOutputHandler {
     }
 
     public void displayListOfBooks() {
-        System.out.print(new Books().toString());
+        System.out.print(new Books());
     }
 }

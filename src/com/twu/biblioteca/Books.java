@@ -17,9 +17,8 @@ public class Books {
     public String toString() {
         String list ="";
         for(Book book : listOfBooks){
-            list = list +book.getBookDetails()+"\n";
+            list = list + book.getBookDetails() + "\n";
         }
-
         return list;
     }
 }
