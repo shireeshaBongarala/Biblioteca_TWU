@@ -8,7 +8,7 @@ public class BibliotecaOutputHandler {
     }
 
     public void displayListOfBooks() {
-        System.out.print("[C Balagurusamy, C++, Java]");
+        System.out.print(new Books().toString());
     }
 
 }
