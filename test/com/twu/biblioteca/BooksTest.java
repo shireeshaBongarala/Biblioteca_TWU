@@ -14,7 +14,7 @@ public class BooksTest {
     public void testIfBookDetailsArePrintedOnConsole() {
         Books books = new Books();
 
-        ArrayList<String> actualListOfBooks = new ArrayList<String>(Arrays.asList("C Balagurusamy", "C++", "Java"));
+    String  actualListOfBooks ="C Balagurusamy    Balagurusamy    1990\nC++    Balagurusamy    1995\nJava    O'Reilly    2012\n" ;
 
         assertThat(actualListOfBooks.toString(), CoreMatchers.is(books.toString()));
     }
