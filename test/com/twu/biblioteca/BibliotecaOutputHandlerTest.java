@@ -30,18 +30,7 @@ public class BibliotecaOutputHandlerTest {
         assertThat(actualMessage, is(outContent.toString()));
     }
 
-    @Test
-    public void testToCheckIfListOfBooksAreDisplayedOnConsole() {
-        BibliotecaOutputHandler bibliotecaOutputHandler = new BibliotecaOutputHandler();
-        bibliotecaOutputHandler.displayListOfBooks();
 
-        String actualListOfBooks = "C Balagurusamy    Balagurusamy    1990\n" +
-                "C++    Balagurusamy    1995\n" +
-                "Java    O'Reilly    2012\n";
-
-        assertThat(actualListOfBooks.toString(), is(outContent.toString()));
-
-    }
 
     @After
     public void tearDown() {
