@@ -39,6 +39,16 @@ public class BibliotecaOutputHandlerTest {
                 "Java    O'Reilly    2012\n";
 
         assertThat(actualListOfBooks.toString(), is(outContent.toString()));
+    }
+
+    @Test
+    public void testToCheckIfMainMenuOptionsAreDisplayedOnScreen(){
+        BibliotecaOutputHandler bibliotecaOutputHandler = new BibliotecaOutputHandler();
+        bibliotecaOutputHandler.displayMainMenuOptions();
+
+        String actualMainMenuOptions = "Select choice:\n1. Book List\n";
+
+        assertThat(actualMainMenuOptions.toString(),is(outContent.toString()));
 
     }
 
