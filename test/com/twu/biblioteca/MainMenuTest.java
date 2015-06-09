@@ -1,6 +1,9 @@
 package com.twu.biblioteca;
 
 import org.junit.Test;
+import org.mockito.Mockito;
+
+import java.io.ByteArrayInputStream;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -11,13 +14,15 @@ public class MainMenuTest {
 
     @Test
     public void testToCheckIfAnOptionHasBeenPressed(){
-        MainMenu mainMenu = mock(MainMenu.class);
-        when(mainMenu.getChoice())
-                .thenReturn(1);
 
-        int actualOption = 1;
+        MainMenu mainMenu = new MainMenu(new ByteArrayInputStream("1".getBytes()));
+        BibliotecaOutputHandler bibliotecaOutputHandlerStub = mock(BibliotecaOutputHandler.class);
 
-        assertThat(actualOption,is(mainMenu.getChoice()));
+        mainMenu.getChoice(bibliotecaOutputHandlerStub);
+
+        Mockito.verify(bibliotecaOutputHandlerStub).displayMainMenuOptions();
+
     }
+
 
 }

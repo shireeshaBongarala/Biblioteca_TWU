@@ -6,11 +6,12 @@ public class BibliotecaOutputHandler {
 
         System.out.print("Welcome to Biblioteca Library Management System");
     }
-    public void displayListOfBooks() {
+    public void displayListOfBooks(Books books) {
 
-        System.out.print(new Books(List.getListOfBooks()));
+        System.out.print(books);
     }
     public void displayErrorMessage() {
+
         System.out.print("Invalid Choice");
     }
     public void displayMainMenuOptions(){

@@ -12,8 +12,8 @@ public class MainMenu{
         }
 
 
-    public int getChoice(){
-        BibliotecaOutputHandler bibliotecaOutputHandler=new BibliotecaOutputHandler();
+    public int getChoice( BibliotecaOutputHandler bibliotecaOutputHandler){
+
         bibliotecaOutputHandler.displayMainMenuOptions();
 
         return scanner.nextInt();
