@@ -12,7 +12,7 @@ public class BibliotecaOutputHandler {
     }
     public void displayErrorMessage() {
 
-        System.out.print("Invalid Choice");
+        System.out.print("Select a valid option!");
     }
     public void displayMainMenuOptions(){
         System.out.println("Select choice:");

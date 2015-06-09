@@ -52,6 +52,16 @@ public class BibliotecaOutputHandlerTest {
 
     }
 
+    @Test
+    public void testToCheckIfCorrectInvalidChoiceMessageIsDisplayedOnScreen(){
+        BibliotecaOutputHandler bibliotecaOutputHandler = new BibliotecaOutputHandler();
+        bibliotecaOutputHandler.displayErrorMessage();
+
+        String actualErrorMessage = "Select a valid option!";
+
+        assertThat(actualErrorMessage,is(outContent.toString()));
+    }
+
 
     @After
     public void tearDown() {
