@@ -20,4 +20,7 @@ public class BibliotecaOutputHandler {
     }
 
 
+    public void displayQuitMessage() {
+        System.out.println("Thank you");
+    }
 }

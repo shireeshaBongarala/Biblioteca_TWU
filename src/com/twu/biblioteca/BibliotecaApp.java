@@ -8,11 +8,10 @@ public class BibliotecaApp {
         MainMenu mainMenu = new MainMenu(System.in);
         choice = mainMenu.getChoice(bibliotecaOutputHandler);
 
-        if(choice == 1)
+           if(choice == 1)
             bibliotecaOutputHandler.displayListOfBooks(new Books(List.getListOfBooks()));
-        else
+            else
             bibliotecaOutputHandler.displayErrorMessage();
-
     }
 
     public static void main(String args[]) {
