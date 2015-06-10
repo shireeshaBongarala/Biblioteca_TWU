@@ -64,9 +64,9 @@ public class BibliotecaOutputHandlerTest {
     @Test
     public void testToCheckIfQuitMessageIsDisplayedOnScreen(){
         BibliotecaOutputHandler bibliotecaOutputHandler = new BibliotecaOutputHandler();
-        bibliotecaOutputHandler.displayQuitMessage();
+        bibliotecaOutputHandler.display(Messages.QUIT_MESSAGE);
 
-        String actualErrorMessage = "Thank you\n";
+        String actualErrorMessage = Messages.QUIT_MESSAGE;
 
         assertThat(actualErrorMessage,is(outContent.toString()));
     }

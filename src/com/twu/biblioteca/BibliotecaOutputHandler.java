@@ -16,8 +16,8 @@ public class BibliotecaOutputHandler {
     public void display(Object o) {
         System.out.print(o);
     }
-    
-    public void displayQuitMessage() {
-        System.out.println("Thank you");
-    }
+
+//   // public void displayQuitMessage() {
+//        System.out.println("Thank you");
+//    }
 }
