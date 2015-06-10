@@ -23,9 +23,9 @@ public class BibliotecaOutputHandlerTest {
     @Test
     public void testToCheckIfCorrectWelcomeMessageIsPrintedOnConsole() {
         BibliotecaOutputHandler bibliotecaOutputHandler = new BibliotecaOutputHandler();
-        bibliotecaOutputHandler.displayWelcomeMessage();
+        bibliotecaOutputHandler.display(Messages.WELCOME_MESSAGE);
 
-        String actualMessage = "Welcome to Biblioteca Library Management System";
+        String actualMessage = Messages.WELCOME_MESSAGE;
 
         assertThat(actualMessage, is(outContent.toString()));
     }

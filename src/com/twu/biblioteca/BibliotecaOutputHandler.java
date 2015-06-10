@@ -10,12 +10,11 @@ public class BibliotecaOutputHandler {
         this.out = out;
     }
     public BibliotecaOutputHandler(){
-
     }
 
-    public void displayWelcomeMessage() {
-
-        System.out.print("Welcome to Biblioteca Library Management System");
+    public void display(Object o) {
+        System.out.print(o);
+        //System.out.print("Welcome to Biblioteca Library Management System");
     }
 
     public void displayListOfBooks(Books books) {
