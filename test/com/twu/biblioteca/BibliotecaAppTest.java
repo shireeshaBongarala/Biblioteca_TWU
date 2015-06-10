@@ -14,7 +14,7 @@ public class BibliotecaAppTest {
 
     @Before
     public void setUp() {
-       // System.setIn(new ByteArrayInputStream("1".getBytes()));
+       //System.setIn(new ByteArrayInputStream("1".getBytes()));
     }
 
     @Test

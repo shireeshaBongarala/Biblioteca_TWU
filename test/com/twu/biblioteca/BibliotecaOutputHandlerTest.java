@@ -14,47 +14,45 @@ import static org.junit.Assert.assertThat;
 
 public class BibliotecaOutputHandlerTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    BibliotecaOutputHandler bibliotecaOutputHandler;
 
     @Before
     public void setUp() {
         System.setOut(new PrintStream(outContent));
+        bibliotecaOutputHandler = new BibliotecaOutputHandler(new PrintStream(outContent));
     }
 
     @Test
     public void testToCheckIfCorrectWelcomeMessageIsPrintedOnConsole() {
-        BibliotecaOutputHandler bibliotecaOutputHandler = new BibliotecaOutputHandler();
         bibliotecaOutputHandler.display(Messages.WELCOME_MESSAGE);
 
         String actualMessage = Messages.WELCOME_MESSAGE;
 
         assertThat(actualMessage, is(outContent.toString()));
     }
+
     @Test
     public void testToCheckIfListOfBooksAreDisplayedOnConsole() {
-        BibliotecaOutputHandler bibliotecaOutputHandler = new BibliotecaOutputHandler();
         bibliotecaOutputHandler.display(new Books(BibliotecaApp.getListOfBooks()));
 
         String actualListOfBooks = "C Balagurusamy    Balagurusamy    1990\n" +
                 "C++    Balagurusamy    1995\n" +
                 "Java    O'Reilly    2012\n";
 
-        assertThat(actualListOfBooks.toString(), is(outContent.toString()));
+        assertThat(actualListOfBooks, is(outContent.toString()));
     }
 
     @Test
     public void testToCheckIfMainMenuOptionsAreDisplayedOnScreen(){
-        BibliotecaOutputHandler bibliotecaOutputHandler = new BibliotecaOutputHandler();
         bibliotecaOutputHandler.display(Messages.MENU_OPTIONS);
 
         String actualMainMenuOptions = Messages.MENU_OPTIONS;
 
-        assertThat(actualMainMenuOptions.toString(),is(outContent.toString()));
-
+        assertThat(actualMainMenuOptions,is(outContent.toString()));
     }
 
     @Test
     public void testToCheckIfCorrectInvalidChoiceMessageIsDisplayedOnScreen(){
-        BibliotecaOutputHandler bibliotecaOutputHandler = new BibliotecaOutputHandler();
         bibliotecaOutputHandler.display(Messages.ERROR_MESSAGE);
 
         String actualErrorMessage = Messages.ERROR_MESSAGE;
@@ -63,7 +61,6 @@ public class BibliotecaOutputHandlerTest {
     }
     @Test
     public void testToCheckIfQuitMessageIsDisplayedOnScreen(){
-        BibliotecaOutputHandler bibliotecaOutputHandler = new BibliotecaOutputHandler();
         bibliotecaOutputHandler.display(Messages.QUIT_MESSAGE);
 
         String actualErrorMessage = Messages.QUIT_MESSAGE;
@@ -74,7 +71,7 @@ public class BibliotecaOutputHandlerTest {
 
     @After
     public void tearDown() {
-        System.setOut(new PrintStream(outContent));
+        System.setOut(null);
     }
 
 }

@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-import java.io.PrintWriter;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class BibliotecaApp {
@@ -18,10 +18,11 @@ public class BibliotecaApp {
 
     public static void main(String args[]) {
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
-                new BibliotecaOutputHandler(new PrintWriter(System.out)),
+                new BibliotecaOutputHandler(new PrintStream(System.out)),
                 new MainMenu(System.in),
                 new Books(getListOfBooks()));
     }
+
     public static ArrayList<Book> getListOfBooks(){
         ArrayList<Book> listOfBooks = new ArrayList<Book>();
         listOfBooks.add(new Book("C Balagurusamy","Balagurusamy",1990));
