@@ -11,7 +11,7 @@ public class BibliotecaApp {
         choice = mainMenu.getChoice(bibliotecaOutputHandler);
 
         if (choice == 1)
-            bibliotecaOutputHandler.displayListOfBooks(books);
+            bibliotecaOutputHandler.display(books);
         else
             bibliotecaOutputHandler.displayErrorMessage();
     }

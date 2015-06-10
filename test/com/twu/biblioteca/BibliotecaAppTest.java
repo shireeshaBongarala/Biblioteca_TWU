@@ -28,7 +28,7 @@ public class BibliotecaAppTest {
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
                 bibliotecaOutputHandlerStub, mainMenuStub, expecBooks);
 
-        Mockito.verify(bibliotecaOutputHandlerStub).displayListOfBooks(expecBooks);
+        Mockito.verify(bibliotecaOutputHandlerStub).display(expecBooks);
     }
 
     @After

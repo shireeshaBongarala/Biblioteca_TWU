@@ -14,13 +14,12 @@ public class BibliotecaOutputHandler {
 
     public void display(Object o) {
         System.out.print(o);
-        //System.out.print("Welcome to Biblioteca Library Management System");
     }
 
-    public void displayListOfBooks(Books books) {
-
-        System.out.print(books);
-    }
+//    public void dispslayListOfBooks(Books books) {
+//
+//        System.out.print(books);
+//    }
 
     public void displayErrorMessage() {
 
