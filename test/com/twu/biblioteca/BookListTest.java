@@ -5,17 +5,17 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-public class ListTest {
+public class BookListTest {
     @Test
     public void testToCheckIfCorrectListIsReturned(){
         ArrayList<Book> list;
-        list = List.getListOfBooks();
+        list = BookList.getListOfBooks();
 
         ArrayList<Book> actualList = new ArrayList<Book>();
 
-        actualList.add(List.oneBook);
-        actualList.add(List.twoBook);
-        actualList.add(List.threeBook);
+        actualList.add(BookList.oneBook);
+        actualList.add(BookList.twoBook);
+        actualList.add(BookList.threeBook);
         Assert.assertTrue(list.equals( actualList));
     }
 

@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -13,7 +14,7 @@ public class BooksTest {
 
     @Test
     public void testIfBookDetailsArePrintedOnConsole() {
-        ArrayList <Book> list= new ArrayList<Book>();
+        ArrayList<Book> list = new ArrayList<Book>();
         Book oneBook = mock(Book.class);
         Book twoBook = mock(Book.class);
         Book threeBook = mock(Book.class);
@@ -21,16 +22,17 @@ public class BooksTest {
         list.add(twoBook);
         list.add(threeBook);
         Books books = new Books(list);
-
         when(oneBook.getBookDetails())
-                .thenReturn("C Balagurusamy    Balagurusamy    1990");
+                .thenReturn("one");
         when(twoBook.getBookDetails())
-                .thenReturn("C++    Balagurusamy    1995");
+                .thenReturn("two");
         when(threeBook.getBookDetails())
-                .thenReturn("Java    O'Reilly    2012");
-        String  actualListOfBooks ="C Balagurusamy    Balagurusamy    1990\nC++    Balagurusamy    1995\nJava    O'Reilly    2012\n" ;
+                .thenReturn("three");
 
-        assertThat(actualListOfBooks.toString(), CoreMatchers.is(books.toString()));
+
+        String actualBooks = books.toString();
+
+        assertThat(actualBooks, is("one\ntwo\nthree\n"));
     }
 
 }

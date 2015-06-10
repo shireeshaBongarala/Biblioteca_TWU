@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-public class List {
+public class BookList {
    public static ArrayList<Book> listOfBooks = new ArrayList <Book>();
     public static Book oneBook = new Book("C Balagurusamy","Balagurusamy",1990);
     public static Book twoBook = new Book("C++","Balagurusamy",1995);

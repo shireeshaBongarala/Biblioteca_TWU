@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
 public class Book {
-    private  String name;
+    private String name;
     private String author;
     private int year;
 
@@ -12,6 +12,6 @@ public class Book {
     }
 
     public String getBookDetails() {
-        return name + "    "+author+"    "+year;
+        return name + "    " + author + "    " + year;
     }
 }

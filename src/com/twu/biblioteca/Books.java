@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Books {
 
-    public ArrayList<Book> listOfBooks = new ArrayList<Book>();
+    private ArrayList<Book> listOfBooks = new ArrayList<Book>();
 
     public Books(ArrayList<Book> listOfBooks) {
         this.listOfBooks = listOfBooks;
