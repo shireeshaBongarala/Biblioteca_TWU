@@ -15,16 +15,10 @@ public class BibliotecaOutputHandler {
     public void display(Object o) {
         System.out.print(o);
     }
-
-//    public void dispslayListOfBooks(Books books) {
+//    public void displayErrorMessage() {
 //
-//        System.out.print(books);
+//        System.out.print("Select a valid option!");
 //    }
-
-    public void displayErrorMessage() {
-
-        System.out.print("Select a valid option!");
-    }
 
     public void displayMainMenuOptions() {
         System.out.println("Select choice:");

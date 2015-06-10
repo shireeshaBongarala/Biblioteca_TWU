@@ -13,7 +13,7 @@ public class BibliotecaApp {
         if (choice == 1)
             bibliotecaOutputHandler.display(books);
         else
-            bibliotecaOutputHandler.displayErrorMessage();
+            bibliotecaOutputHandler.display(Messages.ERROR_MESSAGE);
     }
 
     public static void main(String args[]) {
