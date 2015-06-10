@@ -6,35 +6,38 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 
 public class BibliotecaAppTest {
 
-    @Before
-    public void setUp() {
-       //System.setIn(new ByteArrayInputStream("1".getBytes()));
-    }
-
     @Test
     public void shouldDisplayListOfBooksWhenChoiceIsOne(){
-        Books expecBooks = new Books(BibliotecaApp.getListOfBooks());
+        Books expectedBooks = new Books(BibliotecaApp.getListOfBooks());
         MainMenu mainMenuStub = mock(MainMenu.class);
         BibliotecaOutputHandler bibliotecaOutputHandlerStub = mock(BibliotecaOutputHandler.class);
         when(mainMenuStub.getChoice(bibliotecaOutputHandlerStub))
-                .thenReturn(1);
+                .thenReturn(1,2);
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
-                bibliotecaOutputHandlerStub, mainMenuStub, expecBooks);
+                bibliotecaOutputHandlerStub, mainMenuStub, expectedBooks);
 
-        Mockito.verify(bibliotecaOutputHandlerStub).display(expecBooks);
+        Mockito.verify(bibliotecaOutputHandlerStub,atLeast(1)).display(expectedBooks);
     }
 
-    @After
-    public void tearDown() {
-     System.setIn(System.in);
+    @Test
+    public void shouldDisplayQuitMessageWhenChoiceIsTwo(){
+        Books expectedBooks = new Books(BibliotecaApp.getListOfBooks());
+        MainMenu mainMenuStub = mock(MainMenu.class);
+        BibliotecaOutputHandler bibliotecaOutputHandlerStub = mock(BibliotecaOutputHandler.class);
+        when(mainMenuStub.getChoice(bibliotecaOutputHandlerStub))
+                .thenReturn(2);
+
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(
+                bibliotecaOutputHandlerStub, mainMenuStub, expectedBooks);
+
+        Mockito.verify(bibliotecaOutputHandlerStub,atLeast(1)).display(Messages.QUIT_MESSAGE);
     }
-
-
 }

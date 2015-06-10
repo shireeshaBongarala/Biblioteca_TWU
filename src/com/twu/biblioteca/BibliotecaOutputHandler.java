@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
 import java.io.PrintStream;
-import java.io.PrintWriter;
 
 public class BibliotecaOutputHandler {
 
