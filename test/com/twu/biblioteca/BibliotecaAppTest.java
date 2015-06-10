@@ -19,7 +19,7 @@ public class BibliotecaAppTest {
 
     @Test
     public void shouldDisplayListOfBooksWhenChoiceIsOne(){
-        Books expecBooks = new Books(BookList.getListOfBooks());
+        Books expecBooks = new Books(BibliotecaApp.getListOfBooks());
         MainMenu mainMenuStub = mock(MainMenu.class);
         BibliotecaOutputHandler bibliotecaOutputHandlerStub = mock(BibliotecaOutputHandler.class);
         when(mainMenuStub.getChoice(bibliotecaOutputHandlerStub))
