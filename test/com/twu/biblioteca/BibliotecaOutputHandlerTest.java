@@ -44,9 +44,9 @@ public class BibliotecaOutputHandlerTest {
     @Test
     public void testToCheckIfMainMenuOptionsAreDisplayedOnScreen(){
         BibliotecaOutputHandler bibliotecaOutputHandler = new BibliotecaOutputHandler();
-        bibliotecaOutputHandler.displayMainMenuOptions();
+        bibliotecaOutputHandler.display(Messages.MENU_OPTIONS);
 
-        String actualMainMenuOptions = "Select choice:\n1. Book List\n";
+        String actualMainMenuOptions = Messages.MENU_OPTIONS;
 
         assertThat(actualMainMenuOptions.toString(),is(outContent.toString()));
 

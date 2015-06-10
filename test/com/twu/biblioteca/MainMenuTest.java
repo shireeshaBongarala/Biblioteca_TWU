@@ -20,7 +20,6 @@ public class MainMenuTest {
 
         mainMenu.getChoice(bibliotecaOutputHandlerStub);
 
-        Mockito.verify(bibliotecaOutputHandlerStub).displayMainMenuOptions();
-
+        Mockito.verify(bibliotecaOutputHandlerStub).display(Messages.MENU_OPTIONS);
     }
 }
