@@ -13,6 +13,6 @@ public class BookTest {
 
         String actualBookDetails = "C Balagurusamy"+ "    "+"Balagurusamy"+"    "+1990;
 
-        assertThat(actualBookDetails,is(book.getBookDetails()));
+        assertThat(actualBookDetails,is(book.toString()));
     }
 }

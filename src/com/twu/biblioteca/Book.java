@@ -11,7 +11,8 @@ public class Book {
         this.year = year;
     }
 
-    public String getBookDetails() {
+    @Override
+    public String toString() {
         return name + "    " + author + "    " + year;
     }
 }

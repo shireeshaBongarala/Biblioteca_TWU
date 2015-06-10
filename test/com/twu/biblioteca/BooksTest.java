@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -22,11 +21,11 @@ public class BooksTest {
         list.add(twoBook);
         list.add(threeBook);
         Books books = new Books(list);
-        when(oneBook.getBookDetails())
+        when(oneBook.toString())
                 .thenReturn("one");
-        when(twoBook.getBookDetails())
+        when(twoBook.toString())
                 .thenReturn("two");
-        when(threeBook.getBookDetails())
+        when(threeBook.toString())
                 .thenReturn("three");
 
 
