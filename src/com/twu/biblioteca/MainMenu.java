@@ -14,9 +14,6 @@ public class MainMenu {
 
 
     public int getChoice(BibliotecaOutputHandler bibliotecaOutputHandler) {
-
-        bibliotecaOutputHandler.display(Messages.MENU_OPTIONS);
-
         return scanner.nextInt();
     }
 }

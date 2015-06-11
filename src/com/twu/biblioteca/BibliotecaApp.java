@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class BibliotecaApp {
     int choice;
@@ -14,14 +15,16 @@ public class BibliotecaApp {
         this.bibliotecaOutputHandler = bibliotecaOutputHandler;
         this.mainMenu = mainMenu;
         this.books = books;
-        start();
+
     }
 
     public static void main(String args[]) {
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(
+      new BibliotecaApp(
                 new BibliotecaOutputHandler(new PrintStream(System.out)),
                 new MainMenu(System.in),
-                new Books(getListOfBooks()));
+                new Books(getListOfBooks())).start();
+
+
 
 
     }
@@ -35,16 +38,19 @@ public class BibliotecaApp {
     }
 
     public void start() {
-        choice = mainMenu.getChoice(bibliotecaOutputHandler);
-        if (choice == 2) bibliotecaOutputHandler.display(Messages.QUIT_MESSAGE);
-        while (choice!=2)
-        {
-            if (choice == 1)
-                bibliotecaOutputHandler.display(books);
+        bibliotecaOutputHandler.display(Messages.MENU_OPTIONS);
+       HashMap<Integer,MenuOption> menuOption = new HashMap<Integer, MenuOption>();
+        menuOption.put(1,new BookListOption(books));
+        menuOption.put(2,new QuitOption());
+        do {
+            choice = mainMenu.getChoice(bibliotecaOutputHandler);
+            if(menuOption.containsKey(choice)) {
+                menuOption.get(choice).performAction(bibliotecaOutputHandler);
+            }
             else
                 bibliotecaOutputHandler.display(Messages.ERROR_MESSAGE);
 
-            choice = mainMenu.getChoice(bibliotecaOutputHandler);
-        }
+        }while(choice != 2);
+
     }
 }
