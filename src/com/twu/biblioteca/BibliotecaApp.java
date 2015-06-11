@@ -15,7 +15,6 @@ public class BibliotecaApp {
         this.bibliotecaOutputHandler = bibliotecaOutputHandler;
         this.mainMenu = mainMenu;
         this.books = books;
-
     }
 
     public static void main(String args[]) {
@@ -23,10 +22,6 @@ public class BibliotecaApp {
                 new BibliotecaOutputHandler(new PrintStream(System.out)),
                 new MainMenu(System.in),
                 new Books(getListOfBooks())).start();
-
-
-
-
     }
 
     public static ArrayList<Book> getListOfBooks() {
@@ -51,6 +46,5 @@ public class BibliotecaApp {
                 bibliotecaOutputHandler.display(Messages.ERROR_MESSAGE);
 
         }while(choice != 2);
-
     }
 }
