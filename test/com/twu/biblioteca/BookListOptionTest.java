@@ -16,4 +16,15 @@ public class BookListOptionTest {
 
         verify(bibliotecaOutputHandler).display(books);
     }
+
+    @Test
+    public void testToCheckIfUserIsPromptedOfCheckingOutABook() {
+        Books books = mock(Books.class);
+        BookListOption bookListOption = new BookListOption(books);
+        BibliotecaOutputHandler bibliotecaOutputHandler = mock(BibliotecaOutputHandler.class);
+
+        bookListOption.performAction(bibliotecaOutputHandler);
+
+        verify(bibliotecaOutputHandler).display(Messages.USER_PROMPT_FOR_CHECKOUT_BOOK);
+    }
 }

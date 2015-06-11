@@ -5,4 +5,5 @@ public interface Messages {
     public String ERROR_MESSAGE = "Select a valid option!";
     public String MENU_OPTIONS = "Select Choice:\n1. Book List\n2.Quit";
     public String QUIT_MESSAGE = "Thank you";
+    public String USER_PROMPT_FOR_CHECKOUT_BOOK = "Would you like to checkout a book?";
 }

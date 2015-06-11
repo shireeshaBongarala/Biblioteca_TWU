@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import java.util.Scanner;
+
 public class BookListOption implements MenuOption {
     Books books;
     public BookListOption(Books books) {
@@ -9,6 +11,6 @@ public class BookListOption implements MenuOption {
     public void performAction(BibliotecaOutputHandler bibliotecaOutputHandler) {
 
         bibliotecaOutputHandler.display(books);
-
+        bibliotecaOutputHandler.display(Messages.USER_PROMPT_FOR_CHECKOUT_BOOK);
     }
 }

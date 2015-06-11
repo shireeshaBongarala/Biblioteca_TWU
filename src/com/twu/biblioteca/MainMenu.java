@@ -12,7 +12,6 @@ public class MainMenu {
         scanner = new Scanner(in);
     }
 
-
     public int getChoice(BibliotecaOutputHandler bibliotecaOutputHandler) {
         return scanner.nextInt();
     }

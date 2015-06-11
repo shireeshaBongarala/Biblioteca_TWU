@@ -15,4 +15,8 @@ public class Book {
     public String toString() {
         return name + "    " + author + "    " + year;
     }
+
+    public String getName() {
+        return name;
+    }
 }
