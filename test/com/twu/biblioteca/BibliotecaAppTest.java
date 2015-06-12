@@ -1,7 +1,5 @@
 package com.twu.biblioteca;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
@@ -15,7 +13,7 @@ public class BibliotecaAppTest {
 
     @Test
     public void shouldDisplayListOfBooksWhenChoiceIsOne(){
-        Books expectedBooks = new Books(BibliotecaApp.getListOfBooks());
+        Books expectedBooks = new Books(BibliotecaApp.initializeListOfBooks());
         MainMenu mainMenuStub = mock(MainMenu.class);
         BibliotecaOutputHandler bibliotecaOutputHandlerStub = mock(BibliotecaOutputHandler.class);
         when(mainMenuStub.getChoice(bibliotecaOutputHandlerStub))
@@ -29,7 +27,7 @@ public class BibliotecaAppTest {
 
     @Test
     public void shouldDisplayQuitMessageWhenChoiceIsTwo(){
-        Books expectedBooks = new Books(BibliotecaApp.getListOfBooks());
+        Books expectedBooks = new Books(BibliotecaApp.initializeListOfBooks());
         MainMenu mainMenuStub = mock(MainMenu.class);
         BibliotecaOutputHandler bibliotecaOutputHandlerStub = mock(BibliotecaOutputHandler.class);
         when(mainMenuStub.getChoice(bibliotecaOutputHandlerStub))
@@ -43,7 +41,7 @@ public class BibliotecaAppTest {
 
     @Test
     public void shouldDisplayErrorMessageWhenChoiceIsNeitherOneOrTwo(){
-        Books expectedBooks = new Books(BibliotecaApp.getListOfBooks());
+        Books expectedBooks = new Books(BibliotecaApp.initializeListOfBooks());
         MainMenu mainMenuStub = mock(MainMenu.class);
         BibliotecaOutputHandler bibliotecaOutputHandlerStub = mock(BibliotecaOutputHandler.class);
         when(mainMenuStub.getChoice(bibliotecaOutputHandlerStub))
