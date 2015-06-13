@@ -10,6 +10,8 @@ import java.io.ByteArrayInputStream;
 import java.io.PrintStream;
 
 import static com.twu.biblioteca.Messages.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.mock;
 
@@ -27,8 +29,15 @@ public class CheckOutMenuTest {
 
         checkOutMenu.bookCheckOut(bibliotecaOutputHandlerMock);
 
-
         verify(bibliotecaOutputHandlerMock).display(ENTER_BOOK_NAME);
     }
 
+    @Test
+    public void testToCheckIfCorrectBookNameIsReturned() {
+        CheckOutMenu checkOutMenu = new CheckOutMenu(new ByteArrayInputStream(("y\nC++".getBytes())));
+
+        String actualBookName = checkOutMenu.bookCheckOut(bibliotecaOutputHandlerMock);
+
+        assertThat(actualBookName,is("C++"));
+    }
 }
