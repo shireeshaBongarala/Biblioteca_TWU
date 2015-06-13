@@ -25,6 +25,7 @@ public class CheckOutMenu {
         if(isInterestedToCheckOut()) {
           bibliotecaOutputHandler.display(Messages.ENTER_BOOK_NAME);
             String bookName = scanner.nextLine();
+
         }
     }
 }

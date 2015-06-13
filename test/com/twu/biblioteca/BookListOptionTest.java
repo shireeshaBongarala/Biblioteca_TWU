@@ -1,30 +1,35 @@
 package com.twu.biblioteca;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+@RunWith(MockitoJUnitRunner.class)
+
 public class BookListOptionTest {
+    @Mock
+    private BibliotecaOutputHandler bibliotecaOutputHandlerMock;
     @Test
     public void testToCheckIfDisplayIsCalledInPerformAction() {
         Books books = mock(Books.class);
-        BibliotecaOutputHandler bibliotecaOutputHandler = mock(BibliotecaOutputHandler.class);
         BookListOption bookListOption = new BookListOption(books);
 
-        bookListOption.performAction(bibliotecaOutputHandler);
+        bookListOption.performAction(bibliotecaOutputHandlerMock);
 
-        verify(bibliotecaOutputHandler).display(books);
+        verify(bibliotecaOutputHandlerMock).display(books);
     }
 
     @Test
     public void testToCheckIfUserIsPromptedOfCheckingOutABook() {
         Books books = mock(Books.class);
         BookListOption bookListOption = new BookListOption(books);
-        BibliotecaOutputHandler bibliotecaOutputHandler = mock(BibliotecaOutputHandler.class);
 
-        bookListOption.performAction(bibliotecaOutputHandler);
+        bookListOption.performAction(bibliotecaOutputHandlerMock);
 
-        verify(bibliotecaOutputHandler).display(Messages.USER_PROMPT_FOR_CHECKOUT_BOOK);
+        verify(bibliotecaOutputHandlerMock).display(Messages.USER_PROMPT_FOR_CHECKOUT_BOOK);
     }
 }

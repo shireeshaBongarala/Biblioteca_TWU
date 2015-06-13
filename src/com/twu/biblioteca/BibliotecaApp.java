@@ -4,6 +4,8 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static com.twu.biblioteca.Messages.*;
+
 public class BibliotecaApp {
     int choice;
     BibliotecaOutputHandler bibliotecaOutputHandler;
@@ -38,13 +40,17 @@ public class BibliotecaApp {
         menuOption.put(1,new BookListOption(books));
         menuOption.put(2,new QuitOption());
         do {
-            bibliotecaOutputHandler.display(Messages.MENU_OPTIONS);
+            bibliotecaOutputHandler.display(MENU_OPTIONS);
             choice = mainMenu.getChoice(bibliotecaOutputHandler);
-            if(menuOption.containsKey(choice)) {
-                menuOption.get(choice).performAction(bibliotecaOutputHandler);
+            System.out.println(choice);
+            if(choice == 1) {
+                bibliotecaOutputHandler.display(books);
+                bibliotecaOutputHandler.display(USER_PROMPT_FOR_CHECKOUT_BOOK);
             }
+            else if(choice == 2)
+                bibliotecaOutputHandler.display(QUIT_MESSAGE);
             else
-                bibliotecaOutputHandler.display(Messages.ERROR_MESSAGE);
+                bibliotecaOutputHandler.display(ERROR_MESSAGE);
 
         }while(choice != 2);
     }
