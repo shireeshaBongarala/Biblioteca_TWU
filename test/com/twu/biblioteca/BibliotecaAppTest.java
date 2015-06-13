@@ -18,6 +18,8 @@ public class BibliotecaAppTest {
 
     @Mock
     private MainMenu mainMenuMock;
+    @Mock
+    private CheckOutMenu checkOutMenu;
 
     @Test
     public void shouldDisplayListOfBooksWhenChoiceIsOne(){
@@ -25,7 +27,7 @@ public class BibliotecaAppTest {
         when(mainMenuMock.getChoice(bibliotecaOutputHandlerMock)).thenReturn(1,1,1, 2);
 
         BibliotecaApp bibliotecaApp =
-                new BibliotecaApp(bibliotecaOutputHandlerMock, mainMenuMock, expectedBooks);
+                new BibliotecaApp(bibliotecaOutputHandlerMock, mainMenuMock, expectedBooks, checkOutMenu);
 
         bibliotecaApp.start();
 
@@ -40,7 +42,7 @@ public class BibliotecaAppTest {
                 .thenReturn(2);
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
-                bibliotecaOutputHandlerMock, mainMenuMock, expectedBooks);
+                bibliotecaOutputHandlerMock, mainMenuMock, expectedBooks,checkOutMenu );
         bibliotecaApp.start();
 
         verify(bibliotecaOutputHandlerMock, atLeast(1)).display(Messages.QUIT_MESSAGE);
@@ -53,7 +55,7 @@ public class BibliotecaAppTest {
                 .thenReturn(3,2);
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
-                bibliotecaOutputHandlerMock, mainMenuMock, expectedBooks);
+                bibliotecaOutputHandlerMock, mainMenuMock, expectedBooks,checkOutMenu );
         bibliotecaApp.start();
 
         verify(bibliotecaOutputHandlerMock, atLeast(1)).display(Messages.ERROR_MESSAGE);

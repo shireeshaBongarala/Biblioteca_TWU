@@ -7,24 +7,27 @@ import java.util.HashMap;
 import static com.twu.biblioteca.Messages.*;
 
 public class BibliotecaApp {
+    CheckOutMenu checkOutMenu;
     int choice;
     BibliotecaOutputHandler bibliotecaOutputHandler;
     MainMenu mainMenu;
     Books books;
+
     public static ArrayList<Book> bookList;
 
 
-    public BibliotecaApp(BibliotecaOutputHandler bibliotecaOutputHandler, MainMenu mainMenu, Books books) {
+    public BibliotecaApp(BibliotecaOutputHandler bibliotecaOutputHandler, MainMenu mainMenu, Books books, CheckOutMenu checkOutMenu) {
         this.bibliotecaOutputHandler = bibliotecaOutputHandler;
         this.mainMenu = mainMenu;
         this.books = books;
+        this.checkOutMenu = checkOutMenu;
     }
 
     public static void main(String args[]) {
       new BibliotecaApp(
                 new BibliotecaOutputHandler(new PrintStream(System.out)),
                 new MainMenu(System.in),
-                new Books(initializeListOfBooks())).start();
+                new Books(initializeListOfBooks()), new CheckOutMenu(System.in)).start();
     }
 
     public static ArrayList<Book> initializeListOfBooks() {
