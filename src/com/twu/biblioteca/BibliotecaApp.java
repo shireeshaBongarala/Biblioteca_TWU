@@ -54,13 +54,15 @@ public class BibliotecaApp {
         for (Book book : EntryPoint.bookList) {
             if (book.getName().equals(bookName)) {
                 index = EntryPoint.bookList.indexOf(book);
-                System.out.print("Checked out" + book);
+                bibliotecaOutputHandler.display(SUCCESSFUL_CHECKOUT_MESSAGE);
                 break;
             }
-
         }
         if (index != -1) {
             EntryPoint.bookList.remove(index);
+        }
+        else{
+           bibliotecaOutputHandler.display(UNSUCCESSFUL_CHECKOUT_MESSAGE);
         }
     }
 }

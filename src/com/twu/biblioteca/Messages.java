@@ -6,5 +6,7 @@ public interface Messages {
     public String MENU_OPTIONS = "Select Choice:\n1. Book List\n2.Quit";
     public String QUIT_MESSAGE = "Thank you";
     public String USER_PROMPT_FOR_CHECKOUT_BOOK = "Would you like to checkout a book?";
+    public String SUCCESSFUL_CHECKOUT_MESSAGE = "Thank you! Enjoy the Book.";
+    public String UNSUCCESSFUL_CHECKOUT_MESSAGE = "That book is not available";
     String ENTER_BOOK_NAME = "Enter the Book name for Check out.:";
 }
