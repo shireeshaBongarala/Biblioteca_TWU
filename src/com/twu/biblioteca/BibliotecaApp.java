@@ -39,18 +39,22 @@ public class BibliotecaApp {
         if (checkOutMenu.isInterestedToCheckOut()) {
             bookName = checkOutMenu.getBookName(bibliotecaOutputHandler);
 
-            int index = -1;
-            for (Book book : EntryPoint.bookList) {
-                if (book.getName().equals(bookName)) {
-                    index = EntryPoint.bookList.indexOf(book);
-                    System.out.print("Checked out" + book);
-                    break;
-                }
+            CheckOutBook(bookName);
+        }
+    }
 
+    private void CheckOutBook(String bookName) {
+        int index = -1;
+        for (Book book : EntryPoint.bookList) {
+            if (book.getName().equals(bookName)) {
+                index = EntryPoint.bookList.indexOf(book);
+                System.out.print("Checked out" + book);
+                break;
             }
-            if (index != -1) {
-                EntryPoint.bookList.remove(index);
-            }
+
+        }
+        if (index != -1) {
+            EntryPoint.bookList.remove(index);
         }
     }
 }
