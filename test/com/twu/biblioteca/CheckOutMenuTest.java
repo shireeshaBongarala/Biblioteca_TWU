@@ -7,7 +7,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 
 import java.io.ByteArrayInputStream;
-import java.io.PrintStream;
 
 import static com.twu.biblioteca.Messages.*;
 import static org.hamcrest.CoreMatchers.is;
@@ -27,16 +26,16 @@ public class CheckOutMenuTest {
     public void testToCheckIfCheckOutHasBeenCalled() {
         CheckOutMenu checkOutMenu = new CheckOutMenu(new ByteArrayInputStream(("y\nC++".getBytes())));
 
-        checkOutMenu.bookCheckOut(bibliotecaOutputHandlerMock);
+        checkOutMenu.getBookName(bibliotecaOutputHandlerMock);
 
         verify(bibliotecaOutputHandlerMock).display(ENTER_BOOK_NAME);
     }
 
     @Test
     public void testToCheckIfCorrectBookNameIsReturned() {
-        CheckOutMenu checkOutMenu = new CheckOutMenu(new ByteArrayInputStream(("y\nC++".getBytes())));
+        CheckOutMenu checkOutMenu = new CheckOutMenu(new ByteArrayInputStream(("C++".getBytes())));
 
-        String actualBookName = checkOutMenu.bookCheckOut(bibliotecaOutputHandlerMock);
+        String actualBookName = checkOutMenu.getBookName(bibliotecaOutputHandlerMock);
 
         assertThat(actualBookName,is("C++"));
     }

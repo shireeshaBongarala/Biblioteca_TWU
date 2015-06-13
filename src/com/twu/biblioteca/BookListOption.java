@@ -12,7 +12,7 @@ public class BookListOption implements MenuOption {
 
         bibliotecaOutputHandler.display(books);
         bibliotecaOutputHandler.display(Messages.USER_PROMPT_FOR_CHECKOUT_BOOK);
-           // new CheckOutMenu(System.in).bookCheckOut(bibliotecaOutputHandler);
+           // new CheckOutMenu(System.in).getBookName(bibliotecaOutputHandler);
 
     }
 }

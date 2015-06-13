@@ -21,11 +21,9 @@ public class CheckOutMenu {
         return false;
     }
 
-    public String bookCheckOut(BibliotecaOutputHandler bibliotecaOutputHandler){
-        if(isInterestedToCheckOut()) {
+    public String getBookName(BibliotecaOutputHandler bibliotecaOutputHandler){
+
           bibliotecaOutputHandler.display(Messages.ENTER_BOOK_NAME);
            return scanner.nextLine();
-        }
-        return "Book not found";
     }
 }

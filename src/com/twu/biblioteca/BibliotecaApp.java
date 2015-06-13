@@ -1,9 +1,5 @@
 package com.twu.biblioteca;
 
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import static com.twu.biblioteca.Messages.*;
 
 public class BibliotecaApp {
@@ -21,12 +17,12 @@ public class BibliotecaApp {
     }
 
     public void start() {
+        String bookName;
         do {
             bibliotecaOutputHandler.display(MENU_OPTIONS);
             choice = mainMenu.getChoice(bibliotecaOutputHandler);
             if(choice == 1) {
-                bibliotecaOutputHandler.display(books);
-                bibliotecaOutputHandler.display(USER_PROMPT_FOR_CHECKOUT_BOOK);
+                DisplayBookListAndGetNameAndCheckOutBook();
             }
             else if(choice == 2)
                 bibliotecaOutputHandler.display(QUIT_MESSAGE);
@@ -34,5 +30,27 @@ public class BibliotecaApp {
                 bibliotecaOutputHandler.display(ERROR_MESSAGE);
 
         }while(choice != 2);
+    }
+
+    private void DisplayBookListAndGetNameAndCheckOutBook() {
+        String bookName;
+        bibliotecaOutputHandler.display(books);
+        bibliotecaOutputHandler.display(USER_PROMPT_FOR_CHECKOUT_BOOK);
+        if (checkOutMenu.isInterestedToCheckOut()) {
+            bookName = checkOutMenu.getBookName(bibliotecaOutputHandler);
+
+            int index = -1;
+            for (Book book : EntryPoint.bookList) {
+                if (book.getName().equals(bookName)) {
+                    index = EntryPoint.bookList.indexOf(book);
+                    System.out.print("Checked out" + book);
+                    break;
+                }
+
+            }
+            if (index != -1) {
+                EntryPoint.bookList.remove(index);
+            }
+        }
     }
 }
