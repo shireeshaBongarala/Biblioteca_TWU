@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -30,6 +31,6 @@ public class BookListOptionTest {
 
         bookListOption.performAction(bibliotecaOutputHandlerMock);
 
-        verify(bibliotecaOutputHandlerMock).display(Messages.USER_PROMPT_FOR_CHECKOUT_BOOK);
+        verify(bibliotecaOutputHandlerMock,atLeast(1)).display(Messages.USER_PROMPT_FOR_CHECKOUT_BOOK);
     }
 }
