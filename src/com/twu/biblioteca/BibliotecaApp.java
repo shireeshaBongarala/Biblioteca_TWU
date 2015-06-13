@@ -21,9 +21,6 @@ public class BibliotecaApp {
     }
 
     public void start() {
-       HashMap<Integer,MenuOption> menuOption = new HashMap<Integer, MenuOption>();
-        menuOption.put(1,new BookListOption(books));
-        menuOption.put(2,new QuitOption());
         do {
             bibliotecaOutputHandler.display(MENU_OPTIONS);
             choice = mainMenu.getChoice(bibliotecaOutputHandler);
