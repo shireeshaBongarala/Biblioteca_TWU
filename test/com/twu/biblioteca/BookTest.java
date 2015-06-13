@@ -11,8 +11,17 @@ public class BookTest {
     public void testToCheckIfBookDetailsAreReturnedInRequiredFormat(){
         Book book = new Book("C Balagurusamy","Balagurusamy",1990);
 
-        String actualBookDetails = "C Balagurusamy"+ "    "+"Balagurusamy"+"    "+1990;
+        String expectedBookDetails = "C Balagurusamy"+ "    "+"Balagurusamy"+"    "+1990;
 
-        assertThat(actualBookDetails,is(book.toString()));
+        assertThat((book.toString()),is(expectedBookDetails));
+    }
+
+    @Test
+    public void testToCheckIfBookNameReturnedIsCorrect() {
+        Book book = new Book("C Balagurusamy","Balagurusamy",1990);
+
+        String actualBookName = book.getName();
+
+        assertThat(actualBookName,is("C Balagurusamy"));
     }
 }

@@ -42,7 +42,6 @@ public class BibliotecaApp {
         do {
             bibliotecaOutputHandler.display(MENU_OPTIONS);
             choice = mainMenu.getChoice(bibliotecaOutputHandler);
-            System.out.println(choice);
             if(choice == 1) {
                 bibliotecaOutputHandler.display(books);
                 bibliotecaOutputHandler.display(USER_PROMPT_FOR_CHECKOUT_BOOK);
