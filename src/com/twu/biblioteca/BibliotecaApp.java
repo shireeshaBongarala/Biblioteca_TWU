@@ -13,29 +13,11 @@ public class BibliotecaApp {
     MainMenu mainMenu;
     Books books;
 
-    public static ArrayList<Book> bookList;
-
-
     public BibliotecaApp(BibliotecaOutputHandler bibliotecaOutputHandler, MainMenu mainMenu, Books books, CheckOutMenu checkOutMenu) {
         this.bibliotecaOutputHandler = bibliotecaOutputHandler;
         this.mainMenu = mainMenu;
         this.books = books;
         this.checkOutMenu = checkOutMenu;
-    }
-
-    public static void main(String args[]) {
-      new BibliotecaApp(
-                new BibliotecaOutputHandler(new PrintStream(System.out)),
-                new MainMenu(System.in),
-                new Books(initializeListOfBooks()), new CheckOutMenu(System.in)).start();
-    }
-
-    public static ArrayList<Book> initializeListOfBooks() {
-       bookList = new ArrayList<Book>();
-        bookList.add(new Book("C Balagurusamy", "Balagurusamy", 1990));
-        bookList.add(new Book("C++", "Balagurusamy", 1995));
-        bookList.add(new Book("Java", "O'Reilly", 2012));
-        return bookList;
     }
 
     public void start() {
