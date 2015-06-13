@@ -17,7 +17,6 @@ public class BibliotecaApp {
     }
 
     public void start() {
-        String bookName;
         do {
             bibliotecaOutputHandler.display(MENU_OPTIONS);
             choice = mainMenu.getChoice(bibliotecaOutputHandler);
@@ -33,14 +32,21 @@ public class BibliotecaApp {
     }
 
     private void DisplayBookListAndGetNameAndCheckOutBook() {
-        String bookName;
+        PromptForBookName();
+        if (checkOutMenu.isInterestedToCheckOut()) {
+            CheckOutBook(getBookName());
+        }
+    }
+
+    private void PromptForBookName() {
         bibliotecaOutputHandler.display(books);
         bibliotecaOutputHandler.display(USER_PROMPT_FOR_CHECKOUT_BOOK);
-        if (checkOutMenu.isInterestedToCheckOut()) {
-            bookName = checkOutMenu.getBookName(bibliotecaOutputHandler);
+    }
 
-            CheckOutBook(bookName);
-        }
+    private String getBookName() {
+        String bookName;
+        bookName = checkOutMenu.getBookName(bibliotecaOutputHandler);
+        return bookName;
     }
 
     private void CheckOutBook(String bookName) {
