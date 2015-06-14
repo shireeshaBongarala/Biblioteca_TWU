@@ -16,13 +16,6 @@ public class CheckOut {
             CheckOutBook(bookName);
     }
 
-
-   public String getBookName() {
-        String bookName;
-        bookName = checkOutMenu.getBookName(bibliotecaOutputHandler);
-        return bookName;
-    }
-
     public void CheckOutBook(String bookName) {
         int index = -1;
         for (Book book : EntryPoint.bookList) {

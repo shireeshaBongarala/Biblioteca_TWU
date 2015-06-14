@@ -37,7 +37,7 @@ public class CheckOutTest {
         when(checkOutMenu.getChoice())
                 .thenReturn("y");
 
-        verify(checkOutMenu).isInterestedToCheckOut();
+        verify(checkOutMenu).getBookName(bibliotecaOutputHandlerMock);
     }
 
     @Test

@@ -21,13 +21,15 @@ public class BibliotecaAppTest {
     @Mock
     private CheckOutMenu checkOutMenu;
 
+    @Mock
+    private ReturnBook returnBook;
     @Test
     public void shouldDisplayListOfBooksWhenChoiceIsOne(){
         Books expectedBooks = new Books(EntryPoint.initializeListOfBooks());
-        when(mainMenuMock.getChoice(bibliotecaOutputHandlerMock)).thenReturn(1,1,1, 2);
+        when(mainMenuMock.getChoice(bibliotecaOutputHandlerMock)).thenReturn(1,1,1, 3);
 
         BibliotecaApp bibliotecaApp =
-                new BibliotecaApp(bibliotecaOutputHandlerMock, mainMenuMock, expectedBooks, checkOutMenu);
+                new BibliotecaApp(bibliotecaOutputHandlerMock, mainMenuMock, expectedBooks, checkOutMenu,returnBook);
 
         bibliotecaApp.start();
 
@@ -39,10 +41,10 @@ public class BibliotecaAppTest {
         Books expectedBooks = new Books(EntryPoint.initializeListOfBooks());
 
         when(mainMenuMock.getChoice(bibliotecaOutputHandlerMock))
-                .thenReturn(2);
+                .thenReturn(3);
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
-                bibliotecaOutputHandlerMock, mainMenuMock, expectedBooks,checkOutMenu );
+                bibliotecaOutputHandlerMock, mainMenuMock, expectedBooks,checkOutMenu ,returnBook);
         bibliotecaApp.start();
 
         verify(bibliotecaOutputHandlerMock, atLeast(1)).display(Messages.QUIT_MESSAGE);
@@ -52,10 +54,10 @@ public class BibliotecaAppTest {
     public void shouldDisplayErrorMessageWhenChoiceIsNeitherOneOrTwo(){
         Books expectedBooks = new Books(EntryPoint.initializeListOfBooks());
         when(mainMenuMock.getChoice(bibliotecaOutputHandlerMock))
-                .thenReturn(3,2);
+                .thenReturn(8,3);
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
-                bibliotecaOutputHandlerMock, mainMenuMock, expectedBooks,checkOutMenu );
+                bibliotecaOutputHandlerMock, mainMenuMock, expectedBooks,checkOutMenu ,returnBook);
         bibliotecaApp.start();
 
         verify(bibliotecaOutputHandlerMock, atLeast(1)).display(Messages.ERROR_MESSAGE);

@@ -8,12 +8,14 @@ public class BibliotecaApp {
     BibliotecaOutputHandler bibliotecaOutputHandler;
     MainMenu mainMenu;
     Books books;
+    ReturnBook returnBook;
 
-    public BibliotecaApp(BibliotecaOutputHandler bibliotecaOutputHandler, MainMenu mainMenu, Books books, CheckOutMenu checkOutMenu) {
+    public BibliotecaApp(BibliotecaOutputHandler bibliotecaOutputHandler, MainMenu mainMenu, Books books, CheckOutMenu checkOutMenu,ReturnBook returnBook) {
         this.bibliotecaOutputHandler = bibliotecaOutputHandler;
         this.mainMenu = mainMenu;
         this.books = books;
         this.checkOutMenu = checkOutMenu;
+        this.returnBook = returnBook;
     }
 
     public void start() {
@@ -24,12 +26,16 @@ public class BibliotecaApp {
                 PromptForBookName();
                 if (checkOutMenu.isInterestedToCheckOut())
                     new CheckOut(bibliotecaOutputHandler, checkOutMenu).DisplayBookListAndGetNameAndCheckOutBook();
-            } else if (choice == 2)
+            } else if (choice == 3)
                 bibliotecaOutputHandler.display(QUIT_MESSAGE);
+            else if(choice == 2){
+               returnBook.getBookDetails(bibliotecaOutputHandler);
+            }
             else
+
                 bibliotecaOutputHandler.display(ERROR_MESSAGE);
 
-        } while (choice != 2);
+        } while (choice != 3);
     }
 
     private void PromptForBookName() {
