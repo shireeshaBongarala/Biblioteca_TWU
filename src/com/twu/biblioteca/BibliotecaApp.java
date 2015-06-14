@@ -20,22 +20,16 @@ public class BibliotecaApp {
         do {
             bibliotecaOutputHandler.display(MENU_OPTIONS);
             choice = mainMenu.getChoice(bibliotecaOutputHandler);
-            if(choice == 1) {
-                DisplayBookListAndGetNameAndCheckOutBook();
-            }
-            else if(choice == 2)
+            if (choice == 1) {
+                PromptForBookName();
+                if (checkOutMenu.isInterestedToCheckOut())
+                    new CheckOut(bibliotecaOutputHandler, checkOutMenu).DisplayBookListAndGetNameAndCheckOutBook();
+            } else if (choice == 2)
                 bibliotecaOutputHandler.display(QUIT_MESSAGE);
             else
                 bibliotecaOutputHandler.display(ERROR_MESSAGE);
 
-        }while(choice != 2);
-    }
-
-    private void DisplayBookListAndGetNameAndCheckOutBook() {
-        PromptForBookName();
-        if (checkOutMenu.isInterestedToCheckOut()) {
-            CheckOutBook(getBookName());
-        }
+        } while (choice != 2);
     }
 
     private void PromptForBookName() {
@@ -43,26 +37,4 @@ public class BibliotecaApp {
         bibliotecaOutputHandler.display(USER_PROMPT_FOR_CHECKOUT_BOOK);
     }
 
-    private String getBookName() {
-        String bookName;
-        bookName = checkOutMenu.getBookName(bibliotecaOutputHandler);
-        return bookName;
-    }
-
-    private void CheckOutBook(String bookName) {
-        int index = -1;
-        for (Book book : EntryPoint.bookList) {
-            if (book.getName().equals(bookName)) {
-                index = EntryPoint.bookList.indexOf(book);
-                bibliotecaOutputHandler.display(SUCCESSFUL_CHECKOUT_MESSAGE);
-                break;
-            }
-        }
-        if (index != -1) {
-            EntryPoint.bookList.remove(index);
-        }
-        else{
-           bibliotecaOutputHandler.display(UNSUCCESSFUL_CHECKOUT_MESSAGE);
-        }
-    }
 }

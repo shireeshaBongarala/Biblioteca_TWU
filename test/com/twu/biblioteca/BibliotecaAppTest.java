@@ -60,4 +60,5 @@ public class BibliotecaAppTest {
 
         verify(bibliotecaOutputHandlerMock, atLeast(1)).display(Messages.ERROR_MESSAGE);
     }
+
 }
