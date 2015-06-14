@@ -20,22 +20,22 @@ public class CheckOutMenuTest {
 
 
     @Mock
-    private BibliotecaOutputHandler bibliotecaOutputHandlerMock;
+    private outputHandler outputHandlerMock;
 
     @Test
     public void testToCheckIfCheckOutHasBeenCalled() {
         CheckOutMenu checkOutMenu = new CheckOutMenu(new ByteArrayInputStream(("y\nC++".getBytes())));
 
-        checkOutMenu.getBookName(bibliotecaOutputHandlerMock);
+        checkOutMenu.getBookName(outputHandlerMock);
 
-        verify(bibliotecaOutputHandlerMock).display(ENTER_BOOK_NAME);
+        verify(outputHandlerMock).display(ENTER_BOOK_NAME);
     }
 
     @Test
     public void testToCheckIfCorrectBookNameIsReturned() {
         CheckOutMenu checkOutMenu = new CheckOutMenu(new ByteArrayInputStream(("C++".getBytes())));
 
-        String actualBookName = checkOutMenu.getBookName(bibliotecaOutputHandlerMock);
+        String actualBookName = checkOutMenu.getBookName(outputHandlerMock);
 
         assertThat(actualBookName,is("C++"));
     }

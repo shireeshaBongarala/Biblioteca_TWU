@@ -95,9 +95,9 @@
 <b class="nc"><i>21</i>&nbsp;        return false;</b>
 <i>22</i>&nbsp;    }
 <i>23</i>&nbsp;
-<i>24</i>&nbsp;    public void bookCheckOut(BibliotecaOutputHandler bibliotecaOutputHandler){
+<i>24</i>&nbsp;    public void bookCheckOut(BibliotecaOutputHandler outputHandler){
 <b class="fc"><i>25</i>&nbsp;        if(isInterestedToCheckOut()) {</b>
-<b class="fc"><i>26</i>&nbsp;          bibliotecaOutputHandler.display(Messages.ENTER_BOOK_NAME);</b>
+<b class="fc"><i>26</i>&nbsp;          outputHandler.display(Messages.ENTER_BOOK_NAME);</b>
 <b class="fc"><i>27</i>&nbsp;            String bookName = scanner.nextLine();</b>
 <i>28</i>&nbsp;
 <i>29</i>&nbsp;        }

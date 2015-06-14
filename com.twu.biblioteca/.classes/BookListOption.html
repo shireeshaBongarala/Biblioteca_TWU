@@ -82,11 +82,11 @@
 <b class="fc"><i>8</i>&nbsp;        this.books = books;</b>
 <b class="fc"><i>9</i>&nbsp;    }</b>
 <i>10</i>&nbsp;
-<i>11</i>&nbsp;    public void performAction(BibliotecaOutputHandler bibliotecaOutputHandler) {
+<i>11</i>&nbsp;    public void performAction(BibliotecaOutputHandler outputHandler) {
 <i>12</i>&nbsp;
-<b class="fc"><i>13</i>&nbsp;        bibliotecaOutputHandler.display(books);</b>
-<b class="fc"><i>14</i>&nbsp;        bibliotecaOutputHandler.display(Messages.USER_PROMPT_FOR_CHECKOUT_BOOK);</b>
-<i>15</i>&nbsp;           // new CheckOutMenu(System.in).bookCheckOut(bibliotecaOutputHandler);
+<b class="fc"><i>13</i>&nbsp;        outputHandler.display(books);</b>
+<b class="fc"><i>14</i>&nbsp;        outputHandler.display(Messages.USER_PROMPT_FOR_CHECKOUT_BOOK);</b>
+<i>15</i>&nbsp;           // new CheckOutMenu(System.in).bookCheckOut(outputHandler);
 <i>16</i>&nbsp;
 <b class="fc"><i>17</i>&nbsp;    }</b>
 <i>18</i>&nbsp;}

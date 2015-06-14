@@ -9,11 +9,11 @@ public class QuitOptionTest {
     @Test
     public void testToCheckIfQuitMessageIsCalledInPerformAction() {
 
-        BibliotecaOutputHandler bibliotecaOutputHandler = mock(BibliotecaOutputHandler.class);
+        outputHandler outputHandler = mock(outputHandler.class);
      QuitOption quitOption = new QuitOption();
 
-        quitOption.performAction(bibliotecaOutputHandler);
+        quitOption.performAction(outputHandler);
 
-        verify(bibliotecaOutputHandler).display(Messages.QUIT_MESSAGE);
+        verify(outputHandler).display(Messages.QUIT_MESSAGE);
     }
 }

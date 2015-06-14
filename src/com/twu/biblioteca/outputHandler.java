@@ -2,11 +2,11 @@ package com.twu.biblioteca;
 
 import java.io.PrintStream;
 
-public class BibliotecaOutputHandler {
+public class outputHandler {
 
     PrintStream out;
 
-    public BibliotecaOutputHandler(PrintStream out) {
+    public outputHandler(PrintStream out) {
         this.out = out;
     }
 

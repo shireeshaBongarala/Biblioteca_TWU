@@ -13,15 +13,15 @@ import static org.mockito.Mockito.verify;
 
 public class BookListOptionTest {
     @Mock
-    private BibliotecaOutputHandler bibliotecaOutputHandlerMock;
+    private outputHandler outputHandlerMock;
     @Test
     public void testToCheckIfDisplayIsCalledInPerformAction() {
         Books books = mock(Books.class);
         BookListOption bookListOption = new BookListOption(books);
 
-        bookListOption.performAction(bibliotecaOutputHandlerMock);
+        bookListOption.performAction(outputHandlerMock);
 
-        verify(bibliotecaOutputHandlerMock).display(books);
+        verify(outputHandlerMock).display(books);
     }
 
     @Test
@@ -29,8 +29,8 @@ public class BookListOptionTest {
         Books books = mock(Books.class);
         BookListOption bookListOption = new BookListOption(books);
 
-        bookListOption.performAction(bibliotecaOutputHandlerMock);
+        bookListOption.performAction(outputHandlerMock);
 
-        verify(bibliotecaOutputHandlerMock,atLeast(1)).display(Messages.USER_PROMPT_FOR_CHECKOUT_BOOK);
+        verify(outputHandlerMock,atLeast(1)).display(Messages.USER_PROMPT_FOR_CHECKOUT_BOOK);
     }
 }

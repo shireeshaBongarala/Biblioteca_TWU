@@ -9,7 +9,7 @@ public class EntryPoint {
 
     public static void main(String args[]) {
         new BibliotecaApp(
-                new BibliotecaOutputHandler(new PrintStream(System.out)),
+                new outputHandler(new PrintStream(System.out)),
                 new MainMenu(System.in),
                 new Books(initializeListOfBooks()), new CheckOutMenu(System.in),new ReturnBook(System.in)).start();
     }

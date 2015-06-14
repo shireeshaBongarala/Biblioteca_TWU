@@ -5,13 +5,13 @@ import static com.twu.biblioteca.Messages.*;
 public class BibliotecaApp {
     CheckOutMenu checkOutMenu;
     int choice;
-    BibliotecaOutputHandler bibliotecaOutputHandler;
+    outputHandler outputHandler;
     MainMenu mainMenu;
     Books books;
     ReturnBook returnBook;
 
-    public BibliotecaApp(BibliotecaOutputHandler bibliotecaOutputHandler, MainMenu mainMenu, Books books, CheckOutMenu checkOutMenu,ReturnBook returnBook) {
-        this.bibliotecaOutputHandler = bibliotecaOutputHandler;
+    public BibliotecaApp(outputHandler outputHandler, MainMenu mainMenu, Books books, CheckOutMenu checkOutMenu,ReturnBook returnBook) {
+        this.outputHandler = outputHandler;
         this.mainMenu = mainMenu;
         this.books = books;
         this.checkOutMenu = checkOutMenu;
@@ -20,27 +20,27 @@ public class BibliotecaApp {
 
     public void start() {
         do {
-            bibliotecaOutputHandler.display(MENU_OPTIONS);
-            choice = mainMenu.getChoice(bibliotecaOutputHandler);
+            outputHandler.display(MENU_OPTIONS);
+            choice = mainMenu.getChoice(outputHandler);
             if (choice == 1) {
                 PromptForBookName();
                 if (checkOutMenu.isInterestedToCheckOut())
-                    new CheckOut(bibliotecaOutputHandler, checkOutMenu).DisplayBookListAndGetNameAndCheckOutBook();
+                    new CheckOut(outputHandler, checkOutMenu).DisplayBookListAndGetNameAndCheckOutBook();
             } else if (choice == 3)
-                bibliotecaOutputHandler.display(QUIT_MESSAGE);
+                outputHandler.display(QUIT_MESSAGE);
             else if(choice == 2){
-               returnBook.getBookDetails(bibliotecaOutputHandler);
+               returnBook.getBookDetails(outputHandler);
             }
             else
 
-                bibliotecaOutputHandler.display(ERROR_MESSAGE);
+                outputHandler.display(ERROR_MESSAGE);
 
         } while (choice != 3);
     }
 
     private void PromptForBookName() {
-        bibliotecaOutputHandler.display(books);
-        bibliotecaOutputHandler.display(USER_PROMPT_FOR_CHECKOUT_BOOK);
+        outputHandler.display(books);
+        outputHandler.display(USER_PROMPT_FOR_CHECKOUT_BOOK);
     }
 
 }

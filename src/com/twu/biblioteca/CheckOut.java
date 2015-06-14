@@ -5,14 +5,14 @@ import static com.twu.biblioteca.Messages.UNSUCCESSFUL_CHECKOUT_MESSAGE;
 
 public class CheckOut {
     CheckOutMenu checkOutMenu;
-    BibliotecaOutputHandler bibliotecaOutputHandler;
-    CheckOut(BibliotecaOutputHandler bibliotecaOutputHandler,CheckOutMenu checkOutMenu){
+    outputHandler outputHandler;
+    CheckOut(outputHandler outputHandler,CheckOutMenu checkOutMenu){
 
         this.checkOutMenu = checkOutMenu;
-        this.bibliotecaOutputHandler = bibliotecaOutputHandler;
+        this.outputHandler = outputHandler;
     }
     public void DisplayBookListAndGetNameAndCheckOutBook() {
-       String bookName = checkOutMenu.getBookName(bibliotecaOutputHandler);
+       String bookName = checkOutMenu.getBookName(outputHandler);
             CheckOutBook(bookName);
     }
 
@@ -21,7 +21,7 @@ public class CheckOut {
         for (Book book : EntryPoint.bookList) {
             if (book.getName().equals(bookName)) {
                 index = EntryPoint.bookList.indexOf(book);
-                bibliotecaOutputHandler.display(SUCCESSFUL_CHECKOUT_MESSAGE);
+                outputHandler.display(SUCCESSFUL_CHECKOUT_MESSAGE);
                 break;
             }
         }
@@ -29,7 +29,7 @@ public class CheckOut {
             EntryPoint.bookList.remove(index);
         }
         else{
-            bibliotecaOutputHandler.display(UNSUCCESSFUL_CHECKOUT_MESSAGE);
+            outputHandler.display(UNSUCCESSFUL_CHECKOUT_MESSAGE);
         }
     }
 }

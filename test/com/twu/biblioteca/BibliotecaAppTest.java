@@ -14,7 +14,7 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class BibliotecaAppTest {
     @Mock
-    private BibliotecaOutputHandler bibliotecaOutputHandlerMock;
+    private outputHandler outputHandlerMock;
 
     @Mock
     private MainMenu mainMenuMock;
@@ -26,41 +26,41 @@ public class BibliotecaAppTest {
     @Test
     public void shouldDisplayListOfBooksWhenChoiceIsOne(){
         Books expectedBooks = new Books(EntryPoint.initializeListOfBooks());
-        when(mainMenuMock.getChoice(bibliotecaOutputHandlerMock)).thenReturn(1,1,1, 3);
+        when(mainMenuMock.getChoice(outputHandlerMock)).thenReturn(1,1,1, 3);
 
         BibliotecaApp bibliotecaApp =
-                new BibliotecaApp(bibliotecaOutputHandlerMock, mainMenuMock, expectedBooks, checkOutMenu,returnBook);
+                new BibliotecaApp(outputHandlerMock, mainMenuMock, expectedBooks, checkOutMenu,returnBook);
 
         bibliotecaApp.start();
 
-        verify(bibliotecaOutputHandlerMock, atLeast(1)).display(expectedBooks);
+        verify(outputHandlerMock, atLeast(1)).display(expectedBooks);
     }
 
     @Test
     public void shouldDisplayQuitMessageWhenChoiceIsTwo(){
         Books expectedBooks = new Books(EntryPoint.initializeListOfBooks());
 
-        when(mainMenuMock.getChoice(bibliotecaOutputHandlerMock))
+        when(mainMenuMock.getChoice(outputHandlerMock))
                 .thenReturn(3);
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
-                bibliotecaOutputHandlerMock, mainMenuMock, expectedBooks,checkOutMenu ,returnBook);
+                outputHandlerMock, mainMenuMock, expectedBooks,checkOutMenu ,returnBook);
         bibliotecaApp.start();
 
-        verify(bibliotecaOutputHandlerMock, atLeast(1)).display(Messages.QUIT_MESSAGE);
+        verify(outputHandlerMock, atLeast(1)).display(Messages.QUIT_MESSAGE);
     }
 
     @Test
     public void shouldDisplayErrorMessageWhenChoiceIsNeitherOneOrTwo(){
         Books expectedBooks = new Books(EntryPoint.initializeListOfBooks());
-        when(mainMenuMock.getChoice(bibliotecaOutputHandlerMock))
+        when(mainMenuMock.getChoice(outputHandlerMock))
                 .thenReturn(8,3);
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
-                bibliotecaOutputHandlerMock, mainMenuMock, expectedBooks,checkOutMenu ,returnBook);
+                outputHandlerMock, mainMenuMock, expectedBooks,checkOutMenu ,returnBook);
         bibliotecaApp.start();
 
-        verify(bibliotecaOutputHandlerMock, atLeast(1)).display(Messages.ERROR_MESSAGE);
+        verify(outputHandlerMock, atLeast(1)).display(Messages.ERROR_MESSAGE);
     }
 
 }

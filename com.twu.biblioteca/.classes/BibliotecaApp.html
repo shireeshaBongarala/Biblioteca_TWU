@@ -82,14 +82,14 @@
 <i>8</i>&nbsp;
 <i>9</i>&nbsp;public class BibliotecaApp {
 <i>10</i>&nbsp;    int choice;
-<i>11</i>&nbsp;    BibliotecaOutputHandler bibliotecaOutputHandler;
+<i>11</i>&nbsp;    BibliotecaOutputHandler outputHandler;
 <i>12</i>&nbsp;    MainMenu mainMenu;
 <i>13</i>&nbsp;    Books books;
 <i>14</i>&nbsp;    public static ArrayList&lt;Book&gt; bookList;
 <i>15</i>&nbsp;
 <i>16</i>&nbsp;
-<b class="fc"><i>17</i>&nbsp;    public BibliotecaApp(BibliotecaOutputHandler bibliotecaOutputHandler, MainMenu mainMenu, Books books) {</b>
-<b class="fc"><i>18</i>&nbsp;        this.bibliotecaOutputHandler = bibliotecaOutputHandler;</b>
+<b class="fc"><i>17</i>&nbsp;    public BibliotecaApp(BibliotecaOutputHandler outputHandler, MainMenu mainMenu, Books books) {</b>
+<b class="fc"><i>18</i>&nbsp;        this.outputHandler = outputHandler;</b>
 <b class="fc"><i>19</i>&nbsp;        this.mainMenu = mainMenu;</b>
 <b class="fc"><i>20</i>&nbsp;        this.books = books;</b>
 <b class="fc"><i>21</i>&nbsp;    }</b>
@@ -114,17 +114,17 @@
 <b class="fc"><i>40</i>&nbsp;        menuOption.put(1,new BookListOption(books));</b>
 <b class="fc"><i>41</i>&nbsp;        menuOption.put(2,new QuitOption());</b>
 <i>42</i>&nbsp;        do {
-<b class="fc"><i>43</i>&nbsp;            bibliotecaOutputHandler.display(MENU_OPTIONS);</b>
-<b class="fc"><i>44</i>&nbsp;            choice = mainMenu.getChoice(bibliotecaOutputHandler);</b>
+<b class="fc"><i>43</i>&nbsp;            outputHandler.display(MENU_OPTIONS);</b>
+<b class="fc"><i>44</i>&nbsp;            choice = mainMenu.getChoice(outputHandler);</b>
 <b class="fc"><i>45</i>&nbsp;            System.out.println(choice);</b>
 <b class="fc"><i>46</i>&nbsp;            if(choice == 1) {</b>
-<b class="fc"><i>47</i>&nbsp;                bibliotecaOutputHandler.display(books);</b>
-<b class="fc"><i>48</i>&nbsp;                bibliotecaOutputHandler.display(USER_PROMPT_FOR_CHECKOUT_BOOK);</b>
+<b class="fc"><i>47</i>&nbsp;                outputHandler.display(books);</b>
+<b class="fc"><i>48</i>&nbsp;                outputHandler.display(USER_PROMPT_FOR_CHECKOUT_BOOK);</b>
 <i>49</i>&nbsp;            }
 <b class="fc"><i>50</i>&nbsp;            else if(choice == 2)</b>
-<b class="fc"><i>51</i>&nbsp;                bibliotecaOutputHandler.display(QUIT_MESSAGE);</b>
+<b class="fc"><i>51</i>&nbsp;                outputHandler.display(QUIT_MESSAGE);</b>
 <i>52</i>&nbsp;            else
-<b class="fc"><i>53</i>&nbsp;                bibliotecaOutputHandler.display(ERROR_MESSAGE);</b>
+<b class="fc"><i>53</i>&nbsp;                outputHandler.display(ERROR_MESSAGE);</b>
 <i>54</i>&nbsp;
 <b class="fc"><i>55</i>&nbsp;        }while(choice != 2);</b>
 <b class="fc"><i>56</i>&nbsp;    }</b>

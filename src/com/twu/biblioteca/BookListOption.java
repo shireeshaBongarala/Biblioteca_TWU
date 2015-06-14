@@ -1,18 +1,16 @@
 package com.twu.biblioteca;
 
-import java.util.Scanner;
-
 public class BookListOption implements MenuOption {
     Books books;
     public BookListOption(Books books) {
         this.books = books;
     }
 
-    public void performAction(BibliotecaOutputHandler bibliotecaOutputHandler) {
+    public void performAction(outputHandler outputHandler) {
 
-        bibliotecaOutputHandler.display(books);
-        bibliotecaOutputHandler.display(Messages.USER_PROMPT_FOR_CHECKOUT_BOOK);
-           // new CheckOutMenu(System.in).getBookName(bibliotecaOutputHandler);
+        outputHandler.display(books);
+        outputHandler.display(Messages.USER_PROMPT_FOR_CHECKOUT_BOOK);
+           // new CheckOutMenu(System.in).getBookName(outputHandler);
 
     }
 
