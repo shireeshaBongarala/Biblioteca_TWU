@@ -18,8 +18,7 @@ public class BibliotecaAppTest {
 
     @Mock
     private MainMenuView mainMenuViewMock;
-    @Mock
-    private CheckOutMenu checkOutMenu;
+
 
     @Mock
     private ReturnBook returnBook;
@@ -31,7 +30,7 @@ public class BibliotecaAppTest {
         when(mainMenuViewMock.readInteger()).thenReturn(1,1,1, 3);
 
         BibliotecaApp bibliotecaApp =
-                new BibliotecaApp(outputHandlerMock, mainMenuViewMock, expectedBooks, checkOutMenu,returnBook,checkOut);
+                new BibliotecaApp(outputHandlerMock, mainMenuViewMock, expectedBooks,returnBook,checkOut);
 
         bibliotecaApp.start();
 
@@ -46,7 +45,7 @@ public class BibliotecaAppTest {
                 .thenReturn(3);
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
-                outputHandlerMock, mainMenuViewMock, expectedBooks,checkOutMenu ,returnBook,checkOut);
+                outputHandlerMock, mainMenuViewMock, expectedBooks ,returnBook,checkOut);
         bibliotecaApp.start();
 
         verify(outputHandlerMock, atLeast(1)).display(Messages.QUIT_MESSAGE);
@@ -59,7 +58,7 @@ public class BibliotecaAppTest {
                 .thenReturn(8,3);
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
-                outputHandlerMock, mainMenuViewMock, expectedBooks,checkOutMenu ,returnBook,checkOut);
+                outputHandlerMock, mainMenuViewMock, expectedBooks,returnBook,checkOut);
         bibliotecaApp.start();
 
         verify(outputHandlerMock, atLeast(1)).display(Messages.ERROR_MESSAGE);

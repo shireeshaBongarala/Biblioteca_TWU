@@ -4,13 +4,10 @@ import static com.twu.biblioteca.Messages.SUCCESSFUL_CHECKOUT_MESSAGE;
 import static com.twu.biblioteca.Messages.UNSUCCESSFUL_CHECKOUT_MESSAGE;
 
 public class CheckOut {
-    CheckOutMenu checkOutMenu;
     OutputHandler outputHandler;
     MainMenuView mainMenuView;
 
-    CheckOut(OutputHandler OutputHandler, CheckOutMenu checkOutMenu,MainMenuView mainMenuView) {
-
-        this.checkOutMenu = checkOutMenu;
+    CheckOut(OutputHandler OutputHandler,MainMenuView mainMenuView) {
         this.outputHandler = OutputHandler;
         this.mainMenuView = mainMenuView;
     }

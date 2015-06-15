@@ -5,7 +5,11 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.io.ByteArrayInputStream;
+
 import static com.twu.biblioteca.Messages.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -17,8 +21,7 @@ public class CheckOutTest {
 
     @Mock
     private MainMenuView mainMenuViewMock;
-    @Mock
-    private CheckOutMenu checkOutMenuMock;
+
 
     @Mock
     private Books books;
@@ -41,12 +44,25 @@ public class CheckOutTest {
 //    }
     @Test
     public void shouldDisplayUnSuccessfulCheckOutMessageWhenBookIsNotFound() {
-        CheckOut checkOut = new CheckOut(outputHandlerMock, checkOutMenuMock,mainMenuViewMock);
+        CheckOut checkOut = new CheckOut(outputHandlerMock,mainMenuViewMock);
         checkOut.ReadBookName();
+//
+//        when(checkOut.getBookName(outputHandlerMock))
+//                .thenReturn("C++");
 
-        when(checkOutMenuMock.getBookName(outputHandlerMock))
+        when(mainMenuViewMock.readLine())
                 .thenReturn("C++");
 
         verify(outputHandlerMock).display(UNSUCCESSFUL_CHECKOUT_MESSAGE);
+    }
+
+    @Test
+    public void testToCheckIfCorrectBookNameIsReturned() {
+        MainMenuView mainMenuView = new MainMenuView(new ByteArrayInputStream("\ny".getBytes()));
+        CheckOut checkOut = new CheckOut(outputHandlerMock,mainMenuView);
+
+        boolean actualResult = checkOut.isInterestedToCheckOut();
+
+        assertThat(actualResult,is(true));
     }
 }

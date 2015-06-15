@@ -8,14 +8,13 @@ public class EntryPoint {
     public static ArrayList<Book> checkedOutBookList;
 
     public static void main(String args[]) {
-        CheckOutMenu checkOutMenu = new CheckOutMenu(System.in);
         OutputHandler OutputHandler = new OutputHandler(new PrintStream(System.out));
         MainMenuView mainMenuView = new MainMenuView(System.in);
         checkedOutBookList = new ArrayList<Book>();
         new BibliotecaApp(
                 new OutputHandler(new PrintStream(System.out)),
                 mainMenuView,
-                new Books(initializeListOfBooks()), checkOutMenu, new ReturnBook(System.in), new CheckOut(OutputHandler, checkOutMenu, mainMenuView)).start();
+                new Books(initializeListOfBooks()), new ReturnBook(System.in), new CheckOut(OutputHandler, mainMenuView)).start();
     }
 
     public static ArrayList<Book> initializeListOfBooks() {

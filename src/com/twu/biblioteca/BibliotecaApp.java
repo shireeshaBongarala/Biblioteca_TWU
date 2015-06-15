@@ -3,7 +3,6 @@ package com.twu.biblioteca;
 import static com.twu.biblioteca.Messages.*;
 
 public class BibliotecaApp {
-    CheckOutMenu checkOutMenu;
     int choice;
     OutputHandler outputHandler;
     MainMenuView mainMenuView;
@@ -11,11 +10,11 @@ public class BibliotecaApp {
     ReturnBook returnBook;
     CheckOut checkout;
 
-    public BibliotecaApp(OutputHandler OutputHandler, MainMenuView mainMenuView, Books books, CheckOutMenu checkOutMenu,ReturnBook returnBook,CheckOut checkOut) {
+    public BibliotecaApp(OutputHandler OutputHandler, MainMenuView mainMenuView, Books books,ReturnBook returnBook,CheckOut checkOut) {
         this.outputHandler = OutputHandler;
         this.mainMenuView = mainMenuView;
         this.books = books;
-        this.checkOutMenu = checkOutMenu;
+
         this.returnBook = returnBook;
         this.checkout = checkOut;
     }
