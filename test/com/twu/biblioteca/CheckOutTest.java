@@ -6,6 +6,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.io.ByteArrayInputStream;
+import java.util.ArrayList;
 
 import static com.twu.biblioteca.Messages.*;
 import static org.hamcrest.CoreMatchers.is;
@@ -54,6 +55,18 @@ public class CheckOutTest {
 
         assertThat(actualResult,is(false));
 
+    }
+    @Test
+    public void shouldDisplaySuccessfulCheckOutMessageWhenRequiredBookIsAvailable(){
+        EntryPoint.bookList = new ArrayList<Book>();
+        EntryPoint.checkedOutBookList = new ArrayList<Book>();
+        EntryPoint.bookList.add(new Book("C++","Balagurusamy",1993));
+
+        InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("C++".getBytes()));
+        CheckOut checkOut = new CheckOut(outputHandlerMock,inputHandler);
+        checkOut.checkOutBook();
+
+        verify(outputHandlerMock).display(SUCCESSFUL_CHECKOUT_MESSAGE);
     }
 }
 
