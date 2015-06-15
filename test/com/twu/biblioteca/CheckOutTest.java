@@ -16,7 +16,7 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class CheckOutTest {
     @Mock
-    private outputHandler outputHandlerMock;
+    private OutputHandler outputHandlerMock;
 
     @Mock
     private MainMenu mainMenuMock;

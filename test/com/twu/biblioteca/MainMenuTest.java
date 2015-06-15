@@ -15,7 +15,7 @@ import static org.mockito.Mockito.mock;
 
 public class MainMenuTest {
     @Mock
-    private outputHandler outputHandlerMock;
+    private OutputHandler outputHandlerMock;
 
     @Test
     public void testToCheckIfAnOptionHasBeenPressed(){

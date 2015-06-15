@@ -14,7 +14,7 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class BibliotecaAppTest {
     @Mock
-    private outputHandler outputHandlerMock;
+    private OutputHandler outputHandlerMock;
 
     @Mock
     private MainMenu mainMenuMock;

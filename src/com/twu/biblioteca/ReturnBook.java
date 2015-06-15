@@ -13,8 +13,8 @@ public class ReturnBook {
         scanner = new Scanner(in);
     }
 
-    public void getBookDetails(outputHandler outputHandler) {
-        outputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
+    public void getBookDetails(OutputHandler OutputHandler) {
+        OutputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
         String bookName = scanner.nextLine();
 
         int found = 0;
@@ -22,12 +22,12 @@ public class ReturnBook {
             if (book.getName().equals(bookName)) {
                 found = 1;
                 EntryPoint.bookList.add(book);
-                outputHandler.display(SUCCESSFUL_BOOK_RETURN);
+                OutputHandler.display(SUCCESSFUL_BOOK_RETURN);
                 break;
             }
         }
         if(found == 0){
-            outputHandler.display(UNSUCCESSFUL_BOOK_RETURN);
+            OutputHandler.display(UNSUCCESSFUL_BOOK_RETURN);
         }
     }
 }

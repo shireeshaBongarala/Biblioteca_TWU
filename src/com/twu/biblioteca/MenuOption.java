@@ -1,5 +1,5 @@
 package com.twu.biblioteca;
 
 public interface MenuOption {
-    public void performAction(outputHandler outputHandler);
+    public void performAction(OutputHandler OutputHandler);
 }

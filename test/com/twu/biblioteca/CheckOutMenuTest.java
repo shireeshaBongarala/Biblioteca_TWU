@@ -20,7 +20,7 @@ public class CheckOutMenuTest {
 
 
     @Mock
-    private outputHandler outputHandlerMock;
+    private OutputHandler outputHandlerMock;
 
     @Test
     public void testToCheckIfCheckOutHasBeenCalled() {

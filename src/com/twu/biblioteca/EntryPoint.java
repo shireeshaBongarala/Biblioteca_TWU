@@ -9,9 +9,9 @@ public class EntryPoint {
 
     public static void main(String args[]) {
         CheckOutMenu checkOutMenu = new CheckOutMenu(System.in);
-        outputHandler OutputHandler =  new outputHandler(new PrintStream(System.out));
+        OutputHandler OutputHandler =  new OutputHandler(new PrintStream(System.out));
         new BibliotecaApp(
-                new outputHandler(new PrintStream(System.out)),
+                new OutputHandler(new PrintStream(System.out)),
                 new MainMenu(System.in),
                 new Books(initializeListOfBooks()), checkOutMenu,new ReturnBook(System.in),new CheckOut(OutputHandler, checkOutMenu)).start();
     }

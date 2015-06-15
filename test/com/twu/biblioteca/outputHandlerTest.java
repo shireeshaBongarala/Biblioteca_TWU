@@ -14,17 +14,17 @@ import static org.junit.Assert.assertThat;
 
 public class outputHandlerTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    outputHandler outputHandler;
+    OutputHandler OutputHandler;
 
     @Before
     public void setUp() {
         System.setOut(new PrintStream(outContent));
-        outputHandler = new outputHandler(new PrintStream(outContent));
+        OutputHandler = new OutputHandler(new PrintStream(outContent));
     }
 
     @Test
     public void testToCheckIfCorrectWelcomeMessageIsPrintedOnConsole() {
-        outputHandler.display(Messages.WELCOME_MESSAGE);
+        OutputHandler.display(Messages.WELCOME_MESSAGE);
 
         String actualMessage = Messages.WELCOME_MESSAGE;
 
@@ -33,7 +33,7 @@ public class outputHandlerTest {
 
     @Test
     public void testToCheckIfListOfBooksAreDisplayedOnConsole() {
-        outputHandler.display(new Books(EntryPoint.initializeListOfBooks()));
+        OutputHandler.display(new Books(EntryPoint.initializeListOfBooks()));
 
         String actualListOfBooks = "C Balagurusamy    Balagurusamy    1990\n" +
                 "C++    Balagurusamy    1995\n" +
@@ -44,7 +44,7 @@ public class outputHandlerTest {
 
     @Test
     public void testToCheckIfMainMenuOptionsAreDisplayedOnScreen(){
-        outputHandler.display(Messages.MENU_OPTIONS);
+        OutputHandler.display(Messages.MENU_OPTIONS);
 
         String actualMainMenuOptions = Messages.MENU_OPTIONS;
 
@@ -53,7 +53,7 @@ public class outputHandlerTest {
 
     @Test
     public void testToCheckIfCorrectInvalidChoiceMessageIsDisplayedOnScreen(){
-        outputHandler.display(Messages.ERROR_MESSAGE);
+        OutputHandler.display(Messages.ERROR_MESSAGE);
 
         String actualErrorMessage = Messages.ERROR_MESSAGE;
 
@@ -61,7 +61,7 @@ public class outputHandlerTest {
     }
     @Test
     public void testToCheckIfQuitMessageIsDisplayedOnScreen(){
-        outputHandler.display(Messages.QUIT_MESSAGE);
+        OutputHandler.display(Messages.QUIT_MESSAGE);
 
         String actualErrorMessage = Messages.QUIT_MESSAGE;
 

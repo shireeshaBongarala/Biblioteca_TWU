@@ -21,9 +21,9 @@ public class CheckOutMenu {
         return false;
     }
 
-    public String getBookName(outputHandler outputHandler){
+    public String getBookName(OutputHandler OutputHandler){
 
-          outputHandler.display(Messages.ENTER_BOOK_NAME);
+          OutputHandler.display(Messages.ENTER_BOOK_NAME);
            return scanner.nextLine();
     }
 

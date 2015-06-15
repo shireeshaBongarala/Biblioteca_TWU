@@ -13,7 +13,7 @@ import static org.mockito.Mockito.verify;
 
 public class BookListOptionTest {
     @Mock
-    private outputHandler outputHandlerMock;
+    private OutputHandler outputHandlerMock;
     @Test
     public void testToCheckIfDisplayIsCalledInPerformAction() {
         Books books = mock(Books.class);
