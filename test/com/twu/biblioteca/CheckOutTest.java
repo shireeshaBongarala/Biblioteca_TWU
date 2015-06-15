@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static com.twu.biblioteca.Messages.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Matchers.any;
@@ -20,40 +21,35 @@ public class CheckOutTest {
     @Mock
     private MainMenu mainMenuMock;
     @Mock
-    private CheckOutMenu checkOutMenu;
+    private CheckOutMenu checkOutMenuMock;
 
     @Mock
     private Books books;
-    @Test
-    public void test() {
-        CheckOut checkOut = new CheckOut(outputHandlerMock,checkOutMenu);
-        checkOut.DisplayBookListAndGetNameAndCheckOutBook();
 
-        when(checkOutMenu.isInterestedToCheckOut())
-                .thenReturn(true);
-        when(checkOutMenu.getBookName(outputHandlerMock))
-              .thenReturn("C Balagurusamy");
-        when(checkOutMenu.getChoice())
-                .thenReturn("y");
-
-        verify(checkOutMenu).getBookName(outputHandlerMock);
-    }
 
     @Test
-    public void test1() {
-        CheckOut checkOut = new CheckOut(outputHandlerMock,checkOutMenu);
-        checkOut.DisplayBookListAndGetNameAndCheckOutBook();
+    public void shouldReadTheBookNameWhenUserIsInterestedToCheckOutABook() {
+        CheckOut checkOut = new CheckOut(outputHandlerMock, checkOutMenuMock);
+        checkOut.ReadBookName();
 
-        when(checkOutMenu.isInterestedToCheckOut())
+        when(checkOutMenuMock.isInterestedToCheckOut())
                 .thenReturn(true);
-        when(checkOutMenu.getBookName(outputHandlerMock))
+        when(checkOutMenuMock.getBookName(outputHandlerMock))
                 .thenReturn("C Balagurusamy");
-        when(checkOutMenu.getChoice())
+        when(checkOutMenuMock.getChoice())
                 .thenReturn("y");
 
-       assertThat(checkOutMenu.isInterestedToCheckOut(),is(true));
-       verify(checkOutMenu,atLeast(1)).getBookName(outputHandlerMock);
-      //  verify(outputHandlerMock).display(SUCCESSFUL_CHECKOUT_MESSAGE);
+       verify(checkOutMenuMock,atLeast(1)).getBookName(outputHandlerMock);
 
+    }
+    @Test
+    public void shouldDisplayUnSuccessfulCheckOutMessageWhenBookIsNotFound() {
+        CheckOut checkOut = new CheckOut(outputHandlerMock, checkOutMenuMock);
+        checkOut.ReadBookName();
+
+        when(checkOutMenuMock.getBookName(outputHandlerMock))
+                .thenReturn("C++");
+
+        verify(outputHandlerMock).display(UNSUCCESSFUL_CHECKOUT_MESSAGE);
     }
 }
