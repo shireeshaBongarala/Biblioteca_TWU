@@ -21,9 +21,9 @@ public class BibliotecaAppTest {
 
 
     @Mock
-    private ReturnBook returnBook;
+    private ReturnBook returnBookMock;
     @Mock
-    private CheckOut checkOut;
+    private CheckOut checkOutMock;
     @Mock
     private Books booksMock;
     @Test
@@ -32,7 +32,7 @@ public class BibliotecaAppTest {
         when(inputHandlerMock.readInteger()).thenReturn(1,1,1, 3);
 
         BibliotecaApp bibliotecaApp =
-                new BibliotecaApp(outputHandlerMock, inputHandlerMock, expectedBooks,returnBook,checkOut);
+                new BibliotecaApp(outputHandlerMock, inputHandlerMock, expectedBooks, returnBookMock, checkOutMock);
 
         bibliotecaApp.start();
 
@@ -47,7 +47,7 @@ public class BibliotecaAppTest {
                 .thenReturn(3);
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
-                outputHandlerMock, inputHandlerMock, expectedBooks ,returnBook,checkOut);
+                outputHandlerMock, inputHandlerMock, expectedBooks , returnBookMock, checkOutMock);
         bibliotecaApp.start();
 
         verify(outputHandlerMock, atLeast(1)).display(Messages.QUIT_MESSAGE);
@@ -56,11 +56,10 @@ public class BibliotecaAppTest {
     @Test
     public void shouldDisplayErrorMessageWhenChoiceIsNeitherOneOrTwo(){
         Books expectedBooks = new Books(EntryPoint.initializeListOfBooks());
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(
+                outputHandlerMock, inputHandlerMock, expectedBooks, returnBookMock, checkOutMock);
         when(inputHandlerMock.readInteger())
                 .thenReturn(8,3);
-
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(
-                outputHandlerMock, inputHandlerMock, expectedBooks,returnBook,checkOut);
         bibliotecaApp.start();
 
         verify(outputHandlerMock, atLeast(1)).display(Messages.ERROR_MESSAGE);
@@ -68,14 +67,27 @@ public class BibliotecaAppTest {
 
     @Test
     public void shouldGetBookDetailsIfUserWantsToReturnABook() {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(
+                outputHandlerMock, inputHandlerMock, booksMock, returnBookMock, checkOutMock);
+
         when(inputHandlerMock.readInteger())
                 .thenReturn(2,3);
+               bibliotecaApp.start();
 
-        BibliotecaApp bibliotecaApp = new BibliotecaApp(
-                outputHandlerMock, inputHandlerMock, booksMock,returnBook,checkOut);
-        bibliotecaApp.start();
-
-        verify(returnBook).getBookDetails(outputHandlerMock);
+        verify(returnBookMock).getBookDetails(outputHandlerMock);
     }
 
+    @Test
+    public void shouldCallCheckoutBookIfUserIsInterestedToCheckOutABook() {
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(
+                outputHandlerMock, inputHandlerMock, booksMock, returnBookMock, checkOutMock);
+
+        when(inputHandlerMock.readInteger())
+                .thenReturn(1,3);
+        when(checkOutMock.isInterestedToCheckOut())
+                .thenReturn(true);
+        bibliotecaApp.start();
+
+        verify(checkOutMock).checkOutBook();
+    }
 }
