@@ -6,14 +6,14 @@ public class BibliotecaApp {
     CheckOutMenu checkOutMenu;
     int choice;
     OutputHandler outputHandler;
-    MainMenu mainMenu;
+    MainMenuView mainMenuView;
     Books books;
     ReturnBook returnBook;
     CheckOut checkout;
 
-    public BibliotecaApp(OutputHandler OutputHandler, MainMenu mainMenu, Books books, CheckOutMenu checkOutMenu,ReturnBook returnBook,CheckOut checkOut) {
+    public BibliotecaApp(OutputHandler OutputHandler, MainMenuView mainMenuView, Books books, CheckOutMenu checkOutMenu,ReturnBook returnBook,CheckOut checkOut) {
         this.outputHandler = OutputHandler;
-        this.mainMenu = mainMenu;
+        this.mainMenuView = mainMenuView;
         this.books = books;
         this.checkOutMenu = checkOutMenu;
         this.returnBook = returnBook;
@@ -23,7 +23,7 @@ public class BibliotecaApp {
     public void start() {
         do {
             outputHandler.display(MENU_OPTIONS);
-            choice = mainMenu.getChoice();
+            choice = mainMenuView.getChoice();
                 if (choice == 1) {
                 PromptForBookName();
                 if (checkOutMenu.isInterestedToCheckOut())

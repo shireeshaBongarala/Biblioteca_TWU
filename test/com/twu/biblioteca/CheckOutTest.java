@@ -16,7 +16,7 @@ public class CheckOutTest {
     private OutputHandler outputHandlerMock;
 
     @Mock
-    private MainMenu mainMenuMock;
+    private MainMenuView mainMenuViewMock;
     @Mock
     private CheckOutMenu checkOutMenuMock;
 

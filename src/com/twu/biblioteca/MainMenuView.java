@@ -4,11 +4,11 @@ import java.io.InputStream;
 
 import java.util.Scanner;
 
-public class MainMenu {
+public class MainMenuView {
 
     private final Scanner scanner;
 
-    public MainMenu(InputStream in) {
+    public MainMenuView(InputStream in) {
         scanner = new Scanner(in);
     }
 

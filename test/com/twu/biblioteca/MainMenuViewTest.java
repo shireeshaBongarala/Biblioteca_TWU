@@ -13,15 +13,15 @@ import static org.mockito.Mockito.mock;
 
 @RunWith(MockitoJUnitRunner.class)
 
-public class MainMenuTest {
+public class MainMenuViewTest {
     @Mock
     private OutputHandler outputHandlerMock;
 
     @Test
     public void testToCheckIfAnOptionHasBeenPressed(){
-        MainMenu mainMenu = new MainMenu(new ByteArrayInputStream("1".getBytes()));
+        MainMenuView mainMenuView = new MainMenuView(new ByteArrayInputStream("1".getBytes()));
 
-        int actualResult = mainMenu.getChoice();
+        int actualResult = mainMenuView.getChoice();
 
         assertThat(actualResult,is(1));
     }
