@@ -45,5 +45,4 @@ public class BibliotecaApp {
         OutputHandler.display(books);
         OutputHandler.display(USER_PROMPT_FOR_CHECKOUT_BOOK);
     }
-
 }

@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 public class EntryPoint {
     public static ArrayList<Book> bookList;
-    public static ArrayList<Book> referenceBookList;
+    public static ArrayList<Book> checkedOutBookList;
 
     public static void main(String args[]) {
         CheckOutMenu checkOutMenu = new CheckOutMenu(System.in);
         OutputHandler OutputHandler =  new OutputHandler(new PrintStream(System.out));
+        checkedOutBookList = new ArrayList<Book>();
         new BibliotecaApp(
                 new OutputHandler(new PrintStream(System.out)),
                 new MainMenu(System.in),
@@ -20,11 +21,6 @@ public class EntryPoint {
         bookList.add(new Book("C Balagurusamy", "Balagurusamy", 1990));
         bookList.add(new Book("C++", "Balagurusamy", 1995));
         bookList.add(new Book("Java", "O'Reilly", 2012));
-
-        referenceBookList = new ArrayList<Book>();
-        referenceBookList.add(new Book("C Balagurusamy", "Balagurusamy", 1990));
-        referenceBookList.add(new Book("C++", "Balagurusamy", 1995));
-        referenceBookList.add(new Book("Java", "O'Reilly", 2012));
         return bookList;
     }
     public static ArrayList<Book> getBookList() {

@@ -19,8 +19,8 @@ public class ReturnBook {
         String bookName = scanner.nextLine();
 
         int found = 0;
-        if(EntryPoint.referenceBookList!= null) {
-            for (Book book : EntryPoint.referenceBookList) {
+        if(EntryPoint.checkedOutBookList != null) {
+            for (Book book : EntryPoint.checkedOutBookList) {
                 if (book.getName().equals(bookName)) {
                     found = 1;
                     EntryPoint.bookList.add(book);

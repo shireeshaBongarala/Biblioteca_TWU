@@ -15,12 +15,7 @@ import static org.mockito.Mockito.verify;
 public class ReturnBookTest {
     @Mock
     private OutputHandler outputHandlerMock;
-    @Mock
-    private MainMenu mainMenuMock;
-    @Mock
-    private CheckOutMenu checkOutMenuMock;
-    @Mock
-    private Books books;
+
 
     @Test
     public void shouldPromptTheUserToEnterTheBookName() {

@@ -30,7 +30,9 @@ public class CheckOut {
             }
         }
         if (index != -1) {
+            EntryPoint.checkedOutBookList.add(EntryPoint.bookList.get(index));
             EntryPoint.bookList.remove(index);
+
         } else {
             OutputHandler.display(UNSUCCESSFUL_CHECKOUT_MESSAGE);
         }
