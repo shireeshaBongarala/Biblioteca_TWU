@@ -23,10 +23,10 @@ public class BibliotecaApp {
     public void start() {
         do {
             outputHandler.display(MENU_OPTIONS);
-            choice = mainMenuView.getChoice();
+            choice = mainMenuView.readInteger();
                 if (choice == 1) {
                 PromptForBookName();
-                if (checkOutMenu.isInterestedToCheckOut())
+                if (checkout.isInterestedToCheckOut())
                   checkout.ReadBookName();
             }
             else if(choice == 2){

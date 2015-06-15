@@ -9,13 +9,15 @@ public class EntryPoint {
 
     public static void main(String args[]) {
         CheckOutMenu checkOutMenu = new CheckOutMenu(System.in);
-        OutputHandler OutputHandler =  new OutputHandler(new PrintStream(System.out));
+        OutputHandler OutputHandler = new OutputHandler(new PrintStream(System.out));
+        MainMenuView mainMenuView = new MainMenuView(System.in);
         checkedOutBookList = new ArrayList<Book>();
         new BibliotecaApp(
                 new OutputHandler(new PrintStream(System.out)),
-                new MainMenuView(System.in),
-                new Books(initializeListOfBooks()), checkOutMenu,new ReturnBook(System.in),new CheckOut(OutputHandler, checkOutMenu)).start();
+                mainMenuView,
+                new Books(initializeListOfBooks()), checkOutMenu, new ReturnBook(System.in), new CheckOut(OutputHandler, checkOutMenu, mainMenuView)).start();
     }
+
     public static ArrayList<Book> initializeListOfBooks() {
         bookList = new ArrayList<Book>();
         bookList.add(new Book("C Balagurusamy", "Balagurusamy", 1990));
@@ -23,9 +25,11 @@ public class EntryPoint {
         bookList.add(new Book("Java", "O'Reilly", 2012));
         return bookList;
     }
+
     public static ArrayList<Book> getBookList() {
         return bookList;
     }
+
     public static int getBookListSize() {
         return getBookList().size();
     }

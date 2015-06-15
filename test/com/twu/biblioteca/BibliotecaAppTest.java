@@ -28,7 +28,7 @@ public class BibliotecaAppTest {
     @Test
     public void shouldDisplayListOfBooksWhenChoiceIsOne(){
         Books expectedBooks = new Books(EntryPoint.initializeListOfBooks());
-        when(mainMenuViewMock.getChoice()).thenReturn(1,1,1, 3);
+        when(mainMenuViewMock.readInteger()).thenReturn(1,1,1, 3);
 
         BibliotecaApp bibliotecaApp =
                 new BibliotecaApp(outputHandlerMock, mainMenuViewMock, expectedBooks, checkOutMenu,returnBook,checkOut);
@@ -42,7 +42,7 @@ public class BibliotecaAppTest {
     public void shouldDisplayQuitMessageWhenChoiceIsTwo(){
         Books expectedBooks = new Books(EntryPoint.initializeListOfBooks());
 
-        when(mainMenuViewMock.getChoice())
+        when(mainMenuViewMock.readInteger())
                 .thenReturn(3);
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
@@ -55,7 +55,7 @@ public class BibliotecaAppTest {
     @Test
     public void shouldDisplayErrorMessageWhenChoiceIsNeitherOneOrTwo(){
         Books expectedBooks = new Books(EntryPoint.initializeListOfBooks());
-        when(mainMenuViewMock.getChoice())
+        when(mainMenuViewMock.readInteger())
                 .thenReturn(8,3);
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(

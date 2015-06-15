@@ -15,11 +15,11 @@ public class CheckOutMenu {
         return scanner.nextLine();
     }
 
-    public boolean isInterestedToCheckOut(){
-
-        if(getChoice().equals("y")) return true;
-        return false;
-    }
+//    public boolean isInterestedToCheckOut(){
+//
+//        if(readInteger().equals("y")) return true;
+//        return false;
+//    }
 
     public String getBookName(OutputHandler OutputHandler){
 

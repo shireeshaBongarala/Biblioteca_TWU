@@ -12,7 +12,10 @@ public class MainMenuView {
         scanner = new Scanner(in);
     }
 
-    public int getChoice() {
+    public int readInteger() {
         return scanner.nextInt();
+    }
+    public String readLine() {
+        return scanner.nextLine();
     }
 }
