@@ -5,14 +5,14 @@ import static com.twu.biblioteca.Messages.*;
 public class BibliotecaApp {
     int choice;
     OutputHandler outputHandler;
-    MainMenuView mainMenuView;
+    InputHandler inputHandler;
     Books books;
     ReturnBook returnBook;
     CheckOut checkout;
 
-    public BibliotecaApp(OutputHandler OutputHandler, MainMenuView mainMenuView, Books books,ReturnBook returnBook,CheckOut checkOut) {
+    public BibliotecaApp(OutputHandler OutputHandler, InputHandler inputHandler, Books books,ReturnBook returnBook,CheckOut checkOut) {
         this.outputHandler = OutputHandler;
-        this.mainMenuView = mainMenuView;
+        this.inputHandler = inputHandler;
         this.books = books;
 
         this.returnBook = returnBook;
@@ -22,7 +22,7 @@ public class BibliotecaApp {
     public void start() {
         do {
             outputHandler.display(MENU_OPTIONS);
-            choice = mainMenuView.readInteger();
+            choice = inputHandler.readInteger();
                 if (choice == 1) {
                 PromptForBookName();
                 if (checkout.isInterestedToCheckOut())

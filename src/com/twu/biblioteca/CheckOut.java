@@ -5,16 +5,16 @@ import static com.twu.biblioteca.Messages.UNSUCCESSFUL_CHECKOUT_MESSAGE;
 
 public class CheckOut {
     OutputHandler outputHandler;
-    MainMenuView mainMenuView;
+    InputHandler inputHandler;
 
-    CheckOut(OutputHandler OutputHandler,MainMenuView mainMenuView) {
+    CheckOut(OutputHandler OutputHandler,InputHandler inputHandler) {
         this.outputHandler = OutputHandler;
-        this.mainMenuView = mainMenuView;
+        this.inputHandler = inputHandler;
     }
 
     public boolean isInterestedToCheckOut(){
-           mainMenuView.readLine();
-        if(mainMenuView.readLine().equals("y")) return true;
+           inputHandler.readLine();
+        if(inputHandler.readLine().equals("y")) return true;
         return false;
     }
 
@@ -22,7 +22,7 @@ public class CheckOut {
 
        // String bookName = checkOutMenu.getBookName(outputHandler);
         outputHandler.display(Messages.ENTER_BOOK_NAME);
-        String bookName = mainMenuView.readLine();
+        String bookName = inputHandler.readLine();
         int index = -1;
 
         if (EntryPoint.bookList != null) {
