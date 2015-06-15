@@ -6,11 +6,11 @@ public class BookListOption implements MenuOption {
         this.books = books;
     }
 
-    public void performAction(OutputHandler OutputHandler) {
+    public void performAction(OutputHandler outputHandler) {
 
-        OutputHandler.display(books);
-        OutputHandler.display(Messages.USER_PROMPT_FOR_CHECKOUT_BOOK);
-           // new CheckOutMenu(System.in).getBookName(OutputHandler);
+        outputHandler.display(books);
+        outputHandler.display(Messages.USER_PROMPT_FOR_CHECKOUT_BOOK);
+           // new CheckOutMenu(System.in).getBookName(outputHandler);
 
     }
 

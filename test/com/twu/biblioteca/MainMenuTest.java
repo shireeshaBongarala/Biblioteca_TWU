@@ -21,7 +21,7 @@ public class MainMenuTest {
     public void testToCheckIfAnOptionHasBeenPressed(){
         MainMenu mainMenu = new MainMenu(new ByteArrayInputStream("1".getBytes()));
 
-        int actualResult = mainMenu.getChoice(outputHandlerMock);
+        int actualResult = mainMenu.getChoice();
 
         assertThat(actualResult,is(1));
     }

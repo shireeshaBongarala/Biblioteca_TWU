@@ -12,7 +12,7 @@ public class MainMenu {
         scanner = new Scanner(in);
     }
 
-    public int getChoice(OutputHandler OutputHandler) {
+    public int getChoice() {
         return scanner.nextInt();
     }
 }

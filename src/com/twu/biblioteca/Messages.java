@@ -11,5 +11,5 @@ public interface Messages {
     public String ENTER_BOOK_NAME = "Enter the Book name for Check out.:\n";
     public String ENTER_BOOK_NAME_FOR_RETURNING = "Enter Book name ";
     public String SUCCESSFUL_BOOK_RETURN = "Thank you for returning the book\n";
-    public String UNSUCCESSFUL_BOOK_RETURN = "This is not a valid book to return";
+    public String UNSUCCESSFUL_BOOK_RETURN = "This is not a valid book to return\n";
 }
