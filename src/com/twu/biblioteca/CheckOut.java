@@ -18,9 +18,8 @@ public class CheckOut {
         return false;
     }
 
-    public void ReadBookName() {
+    public void checkOutBook() {
 
-       // String bookName = checkOutMenu.getBookName(outputHandler);
         outputHandler.display(Messages.ENTER_BOOK_NAME);
         String bookName = inputHandler.readLine();
         int index = -1;

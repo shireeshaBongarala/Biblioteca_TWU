@@ -26,7 +26,7 @@ public class BibliotecaApp {
                 if (choice == 1) {
                 PromptForBookName();
                 if (checkout.isInterestedToCheckOut())
-                  checkout.ReadBookName();
+                  checkout.checkOutBook();
             }
             else if(choice == 2){
                 returnBook.getBookDetails(outputHandler);

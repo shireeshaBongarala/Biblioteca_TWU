@@ -27,7 +27,7 @@ public class CheckOutTest {
     @Test
     public void shouldDisplayUnSuccessfulCheckOutMessageWhenBookIsNotFound() {
         CheckOut checkOut = new CheckOut(outputHandlerMock, inputHandlerMock);
-        checkOut.ReadBookName();
+        checkOut.checkOutBook();
 
         when(inputHandlerMock.readLine())
                 .thenReturn("C++");
@@ -36,7 +36,7 @@ public class CheckOutTest {
     }
 
     @Test
-    public void testToCheckIfCorrectBookNameIsReturned() {
+    public void shouldReturnTrueIfUserIsInterestedToCheckOutABook() {
         InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("\ny".getBytes()));
         CheckOut checkOut = new CheckOut(outputHandlerMock, inputHandler);
 
@@ -44,4 +44,16 @@ public class CheckOutTest {
 
         assertThat(actualResult,is(true));
     }
+
+    @Test
+    public void shouldReturnFalseIfUserIsNotInterestedToCheckOutABook() {
+        InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("\nn".getBytes()));
+        CheckOut checkOut = new CheckOut(outputHandlerMock, inputHandler);
+
+        boolean actualResult = checkOut.isInterestedToCheckOut();
+
+        assertThat(actualResult,is(false));
+
+    }
 }
+
