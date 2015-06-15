@@ -13,21 +13,24 @@ public class ReturnBook {
         scanner = new Scanner(in);
     }
 
-    public void getBookDetails(OutputHandler OutputHandler) {
-        OutputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
+    public void getBookDetails(OutputHandler outputHandler) {
+
+        outputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
         String bookName = scanner.nextLine();
 
         int found = 0;
-        for (Book book : EntryPoint.referenceBookList) {
-            if (book.getName().equals(bookName)) {
-                found = 1;
-                EntryPoint.bookList.add(book);
-                OutputHandler.display(SUCCESSFUL_BOOK_RETURN);
-                break;
+        if(EntryPoint.referenceBookList!= null) {
+            for (Book book : EntryPoint.referenceBookList) {
+                if (book.getName().equals(bookName)) {
+                    found = 1;
+                    EntryPoint.bookList.add(book);
+                    outputHandler.display(SUCCESSFUL_BOOK_RETURN);
+                    break;
+                }
             }
         }
         if(found == 0){
-            OutputHandler.display(UNSUCCESSFUL_BOOK_RETURN);
+            outputHandler.display(UNSUCCESSFUL_BOOK_RETURN);
         }
     }
 }
