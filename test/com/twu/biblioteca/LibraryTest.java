@@ -34,6 +34,14 @@ public class LibraryTest {
 
         assertThat(library.additionToCheckedOutBookListIsSuccessful(bookName),is(true));
     }
+    @Test
+    public void shouldNotCheckOutBookFromAvailableBookListWhenBookIsValidAvailableBook() {
+        Library library = new Library();
+
+        String bookName = "C";
+
+        assertThat(library.additionToCheckedOutBookListIsSuccessful(bookName),is(false));
+    }
 }
 
 
