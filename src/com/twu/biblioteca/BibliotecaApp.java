@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
+import java.io.PrintStream;
 
 import static com.twu.biblioteca.Messages.*;
 
@@ -14,8 +14,8 @@ public class BibliotecaApp {
     Library library;
     Movies movies;
 
-    public BibliotecaApp(OutputHandler OutputHandler, InputHandler inputHandler, Books books, ReturnBook returnBook, CheckOut checkOut, Movies movies) {
-        this.outputHandler = OutputHandler;
+    public BibliotecaApp(OutputHandler outputHandler, InputHandler inputHandler, Books books, ReturnBook returnBook, CheckOut checkOut, Movies movies) {
+        this.outputHandler = outputHandler;
         this.inputHandler = inputHandler;
         this.books = books;
         this.returnBook = returnBook;

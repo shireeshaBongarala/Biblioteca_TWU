@@ -4,7 +4,7 @@ import static com.twu.biblioteca.Messages.SUCCESSFUL_CHECKOUT_MESSAGE;
 import static com.twu.biblioteca.Messages.UNSUCCESSFUL_CHECKOUT_MESSAGE;
 
 public class CheckOut {
-    OutputHandler outputHandler;
+OutputHandler outputHandler;
     InputHandler inputHandler;
     Library library;
 

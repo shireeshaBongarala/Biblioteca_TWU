@@ -5,7 +5,6 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.util.AbstractList;
 import java.util.ArrayList;
 
 import static org.mockito.Matchers.any;
