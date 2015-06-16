@@ -31,7 +31,7 @@ public class BibliotecaAppTest {
     public void shouldDisplayListOfBooksWhenChoiceIsOne(){
         Library library = new Library();
         Books expectedBooks = new Books(library.getAvailableBookList());
-        when(inputHandlerMock.readInteger()).thenReturn(1,1,1, 3);
+        when(inputHandlerMock.readInteger()).thenReturn(1,1,1, 4);
 
         BibliotecaApp bibliotecaApp =
                 new BibliotecaApp(outputHandlerMock, inputHandlerMock, expectedBooks, returnBookMock, checkOutMock);
@@ -47,7 +47,7 @@ public class BibliotecaAppTest {
         Books expectedBooks = new Books(library.getAvailableBookList());
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(3);
+                .thenReturn(4);
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
                 outputHandlerMock, inputHandlerMock, expectedBooks , returnBookMock, checkOutMock);
@@ -63,7 +63,7 @@ public class BibliotecaAppTest {
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
                 outputHandlerMock, inputHandlerMock, expectedBooks, returnBookMock, checkOutMock);
         when(inputHandlerMock.readInteger())
-                .thenReturn(8,3);
+                .thenReturn(8,4);
         bibliotecaApp.start();
 
         verify(outputHandlerMock, atLeast(1)).display(Messages.ERROR_MESSAGE);
@@ -75,7 +75,7 @@ public class BibliotecaAppTest {
                 outputHandlerMock, inputHandlerMock, booksMock, returnBookMock, checkOutMock);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(2,3);
+                .thenReturn(2,4);
                bibliotecaApp.start();
 
         verify(returnBookMock).getBookDetails(outputHandlerMock);
@@ -87,7 +87,7 @@ public class BibliotecaAppTest {
                 outputHandlerMock, inputHandlerMock, booksMock, returnBookMock, checkOutMock);
 
         when(inputHandlerMock.readInteger())
-                .thenReturn(1,3);
+                .thenReturn(1,4);
         when(checkOutMock.isInterestedToCheckOut())
                 .thenReturn(true);
         bibliotecaApp.start();

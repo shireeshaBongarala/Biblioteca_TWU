@@ -13,5 +13,4 @@ public class EntryPoint {
                 inputHandler,
                 new Books(library.getAvailableBookList()), new ReturnBook(System.in,library), new CheckOut(OutputHandler, inputHandler,library)).start();
     }
-
 }

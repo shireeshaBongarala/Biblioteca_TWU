@@ -24,7 +24,7 @@ public class BibliotecaApp {
             outputHandler.display(MENU_OPTIONS);
             choice = inputHandler.readInteger();
                 if (choice == 1) {
-                PromptForBookName();
+                PromptForCheckOut();
                 if (checkout.isInterestedToCheckOut()) {
                     outputHandler.display(ENTER_BOOK_NAME);
                     checkout.checkOutBook();
@@ -34,16 +34,16 @@ public class BibliotecaApp {
                     outputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
                 returnBook.getBookDetails(outputHandler);
             }
-            else if (choice == 3)
+            else if (choice == 4)
                 outputHandler.display(QUIT_MESSAGE);
 
             else
                 outputHandler.display(ERROR_MESSAGE);
 
-        } while (choice != 3);
+        } while (choice != 4);
     }
 
-    private void PromptForBookName() {
+    private void PromptForCheckOut() {
         outputHandler.display(books);
         outputHandler.display(USER_PROMPT_FOR_CHECKOUT_BOOK);
     }
