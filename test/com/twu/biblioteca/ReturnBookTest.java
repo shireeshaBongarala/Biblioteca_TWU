@@ -7,35 +7,47 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import static com.twu.biblioteca.Messages.*;
 
+import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ReturnBookTest {
     @Mock
     private OutputHandler outputHandlerMock;
+    @Mock
+    private Library libraryMock;
 
-
-    @Test
-    public void shouldPromptTheUserToEnterTheBookName() {
-        ReturnBook returnBook = new ReturnBook(new ByteArrayInputStream("C Balagurusamy".getBytes()));
-
-        returnBook.getBookDetails(outputHandlerMock);
-
-        verify(outputHandlerMock).display(ENTER_BOOK_NAME_FOR_RETURNING);
-    }
+//
+//    @Test
+//    public void shouldPromptTheUserToEnterTheBookName() {
+//        ReturnBook returnBook = new ReturnBook(new ByteArrayInputStream("C Balagurusamy".getBytes()));
+//
+//        returnBook.getBookDetails(outputHandlerMock);
+//
+//        verify(outputHandlerMock).display(ENTER_BOOK_NAME_FOR_RETURNING);
+//    }
 
     @Test
     public void shouldAddABookIfItIsValidBookToBeReturned() {
-        EntryPoint.checkedOutBookList = new ArrayList<Book>();
-        EntryPoint.bookList = new ArrayList<Book>();
-        EntryPoint.checkedOutBookList.add(new Book("C++","Balagurusamy",1997));
-        ReturnBook returnBook = new ReturnBook(new ByteArrayInputStream("C++".getBytes()));
+        Library library = new Library();
+        ReturnBook returnBook = new ReturnBook(new ByteArrayInputStream("Let Us C".getBytes()),library);
 
         returnBook.getBookDetails(outputHandlerMock);
 
         verify(outputHandlerMock).display(SUCCESSFUL_BOOK_RETURN);
+    }
+
+    @Test
+    public void shouldNotAddABookIfItIsValidBookToBeReturned() {
+        Library library = new Library();
+        ReturnBook returnBook = new ReturnBook(new ByteArrayInputStream("C++".getBytes()),library);
+
+        returnBook.getBookDetails(outputHandlerMock);
+
+        verify(outputHandlerMock).display(UNSUCCESSFUL_BOOK_RETURN);
     }
 }

@@ -22,12 +22,15 @@ public class CheckOutTest {
     @Mock
     private InputHandler inputHandlerMock;
 
+    @Mock
+    private Library libraryMock;
 
     @Mock
     private Books books;
+
     @Test
     public void shouldDisplayUnSuccessfulCheckOutMessageWhenBookIsNotFound() {
-        CheckOut checkOut = new CheckOut(outputHandlerMock, inputHandlerMock);
+        CheckOut checkOut = new CheckOut(outputHandlerMock, inputHandlerMock,libraryMock);
         checkOut.checkOutBook();
 
         when(inputHandlerMock.readLine())
@@ -39,7 +42,7 @@ public class CheckOutTest {
     @Test
     public void shouldReturnTrueIfUserIsInterestedToCheckOutABook() {
         InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("\ny".getBytes()));
-        CheckOut checkOut = new CheckOut(outputHandlerMock, inputHandler);
+        CheckOut checkOut = new CheckOut(outputHandlerMock, inputHandler,libraryMock);
 
         boolean actualResult = checkOut.isInterestedToCheckOut();
 
@@ -49,7 +52,7 @@ public class CheckOutTest {
     @Test
     public void shouldReturnFalseIfUserIsNotInterestedToCheckOutABook() {
         InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("\nn".getBytes()));
-        CheckOut checkOut = new CheckOut(outputHandlerMock, inputHandler);
+        CheckOut checkOut = new CheckOut(outputHandlerMock, inputHandler,libraryMock);
 
         boolean actualResult = checkOut.isInterestedToCheckOut();
 
@@ -58,8 +61,9 @@ public class CheckOutTest {
     }
     @Test
     public void shouldDisplaySuccessfulCheckOutMessageWhenRequiredBookIsAvailable(){
+        Library library = new Library();
         InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("C++".getBytes()));
-        CheckOut checkOut = new CheckOut(outputHandlerMock,inputHandler);
+        CheckOut checkOut = new CheckOut(outputHandlerMock,inputHandler,library);
 
         checkOut.checkOutBook();
 

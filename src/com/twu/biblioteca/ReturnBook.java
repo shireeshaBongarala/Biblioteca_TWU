@@ -8,28 +8,19 @@ import static com.twu.biblioteca.Messages.*;
 
 public class ReturnBook {
     private final Scanner scanner;
+    private Library library;
 
-    public ReturnBook(InputStream in) {
+    public ReturnBook(InputStream in,Library library) {
         scanner = new Scanner(in);
+        this.library = library;
     }
 
     public void getBookDetails(OutputHandler outputHandler) {
-
-        outputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
         String bookName = scanner.nextLine();
-
-        int found = 0;
-        if(EntryPoint.checkedOutBookList != null) {
-            for (Book book : EntryPoint.checkedOutBookList) {
-                if (book.getName().equals(bookName)) {
-                    found = 1;
-                    EntryPoint.bookList.add(book);
-                    outputHandler.display(SUCCESSFUL_BOOK_RETURN);
-                    break;
-                }
-            }
+        if(library.addToAvailableBookList(bookName)) {
+            outputHandler.display(SUCCESSFUL_BOOK_RETURN);
         }
-        if(found == 0){
+        else {
             outputHandler.display(UNSUCCESSFUL_BOOK_RETURN);
         }
     }

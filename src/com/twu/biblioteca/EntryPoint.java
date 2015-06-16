@@ -10,11 +10,12 @@ public class EntryPoint {
     public static void main(String args[]) {
         OutputHandler OutputHandler = new OutputHandler(new PrintStream(System.out));
         InputHandler inputHandler = new InputHandler(System.in);
+        Library library = new Library();
         checkedOutBookList = new ArrayList<Book>();
         new BibliotecaApp(
                 new OutputHandler(new PrintStream(System.out)),
                 inputHandler,
-                new Books(initializeListOfBooks()), new ReturnBook(System.in), new CheckOut(OutputHandler, inputHandler)).start();
+                new Books(initializeListOfBooks()), new ReturnBook(System.in,library), new CheckOut(OutputHandler, inputHandler,library)).start();
     }
 
     public static ArrayList<Book> initializeListOfBooks() {
