@@ -54,4 +54,15 @@ public class Library {
     public ArrayList<Movie> getAvailableMovieList() {
         return availableMovieList;
     }
+
+    public boolean additionToCheckedOutMovieListIsSuccessful(String movieName) {
+        for(Movie  movie : availableMovieList){
+            if(movie.getName().equals(movieName)) {
+                checkedOutMovieList.add(movie);
+                availableMovieList.remove(movie);
+                return true;
+            }
+        }
+        return false;
+    }
 }

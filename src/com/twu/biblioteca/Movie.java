@@ -17,4 +17,8 @@ public class Movie {
 
         return name + "    " + year + "    " + director + "    " + rating;
     }
+
+    public String getName() {
+        return name;
+    }
 }

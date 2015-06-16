@@ -51,6 +51,14 @@ public class LibraryTest {
 
         assertFalse(movies.isEmpty());
     }
+    @Test
+    public void shouldCheckOutMovieFromAvailableMovieListWhenMovieIsAValidAvaialableMovie() {
+        Library library = new Library();
+
+        String movieName = "IronMan";
+
+        assertThat(library.additionToCheckedOutMovieListIsSuccessful(movieName),is(true));
+    }
 }
 
 
