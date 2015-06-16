@@ -32,7 +32,7 @@ public class LibraryTest {
 
         String bookName = "C++";
 
-        assertThat(library.addToCheckedOutBookList(bookName),is(true));
+        assertThat(library.additionToCheckedOutBookListIsSuccessful(bookName),is(true));
     }
 }
 

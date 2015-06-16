@@ -58,12 +58,9 @@ public class CheckOutTest {
     }
     @Test
     public void shouldDisplaySuccessfulCheckOutMessageWhenRequiredBookIsAvailable(){
-        EntryPoint.bookList = new ArrayList<Book>();
-        EntryPoint.checkedOutBookList = new ArrayList<Book>();
-        EntryPoint.bookList.add(new Book("C++","Balagurusamy",1993));
-
         InputHandler inputHandler = new InputHandler(new ByteArrayInputStream("C++".getBytes()));
         CheckOut checkOut = new CheckOut(outputHandlerMock,inputHandler);
+
         checkOut.checkOutBook();
 
         verify(outputHandlerMock).display(SUCCESSFUL_CHECKOUT_MESSAGE);
