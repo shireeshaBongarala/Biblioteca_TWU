@@ -33,5 +33,4 @@ public class BooksTest {
 
         assertThat(actualBooks, is("one\ntwo\nthree\n"));
     }
-
 }
