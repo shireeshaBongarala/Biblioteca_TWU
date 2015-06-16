@@ -5,6 +5,9 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.AbstractList;
+import java.util.ArrayList;
+
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.atLeast;
@@ -15,11 +18,8 @@ import static org.mockito.Mockito.when;
 public class BibliotecaAppTest {
     @Mock
     private OutputHandler outputHandlerMock;
-
     @Mock
     private InputHandler inputHandlerMock;
-
-
     @Mock
     private ReturnBook returnBookMock;
     @Mock
@@ -95,5 +95,20 @@ public class BibliotecaAppTest {
         bibliotecaApp.start();
 
         verify(checkOutMock).checkOutBook();
+    }
+    @Test
+    public void shouldDisplayListOfMoviesWhenUserSelectsChoiceThree(){
+       Movie movie = new Movie("C",1990,"Balagurusamy",10);
+        ArrayList <Movie> movieList = new ArrayList<Movie>();
+        movieList.add(movie);
+        Movies movies = new Movies(movieList);
+        BibliotecaApp bibliotecaApp = new BibliotecaApp(
+                outputHandlerMock, inputHandlerMock, booksMock, returnBookMock, checkOutMock,movies);
+
+        when(inputHandlerMock.readInteger())
+                .thenReturn(3,4);
+        bibliotecaApp.start();
+
+        verify(outputHandlerMock).display(movies);
     }
 }

@@ -11,7 +11,8 @@ public class BibliotecaApp {
     CheckOut checkout;
     Library library;
     Movies movies;
-    public BibliotecaApp(OutputHandler OutputHandler, InputHandler inputHandler, Books books,ReturnBook returnBook,CheckOut checkOut,Movies movies) {
+
+    public BibliotecaApp(OutputHandler OutputHandler, InputHandler inputHandler, Books books, ReturnBook returnBook, CheckOut checkOut, Movies movies) {
         this.outputHandler = OutputHandler;
         this.inputHandler = inputHandler;
         this.books = books;
@@ -24,21 +25,18 @@ public class BibliotecaApp {
         do {
             outputHandler.display(MENU_OPTIONS);
             choice = inputHandler.readInteger();
-                if (choice == 1) {
+            if (choice == 1) {
                 PromptForCheckOut();
                 if (checkout.isInterestedToCheckOut()) {
                     outputHandler.display(ENTER_BOOK_NAME);
                     checkout.checkOutBook();
                 }
-            }
-            else if(choice == 2){
-                    outputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
+            } else if (choice == 2) {
+                outputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
                 returnBook.getBookDetails(outputHandler);
-            }
-                else if(choice == 3){
-                    outputHandler.display(movies);
-                }
-            else if (choice == 4)
+            } else if (choice == 3) {
+                outputHandler.display(movies);
+            } else if (choice == 4)
                 outputHandler.display(QUIT_MESSAGE);
 
             else
