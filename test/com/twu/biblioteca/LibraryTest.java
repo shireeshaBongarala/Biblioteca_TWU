@@ -42,6 +42,15 @@ public class LibraryTest {
 
         assertThat(library.additionToCheckedOutBookListIsSuccessful(bookName),is(false));
     }
+    @Test
+    public void shouldBeInitializedWithStaticMovieList() {
+        Library library = new Library();
+        ArrayList <Movie> movies;
+
+        movies = library.getAvailableMovieList();
+
+        assertFalse(movies.isEmpty());
+    }
 }
 
 
