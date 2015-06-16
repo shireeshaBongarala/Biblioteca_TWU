@@ -18,11 +18,23 @@ public class Library {
     }
 
     public boolean addToAvailableBookList(String bookName) {
-        for(Book book : checkedOutBookList)
-        if (book.getName().equals(bookName)) {
-            availableBookList.add(book);
-            checkedOutBookList.remove(book);
-            return true;
+        for(Book book : checkedOutBookList) {
+            if (book.getName().equals(bookName)) {
+                availableBookList.add(book);
+                checkedOutBookList.remove(book);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean addToCheckedOutBookList(String bookName) {
+        for(Book book : availableBookList){
+            if(book.getName().equals(bookName)) {
+                checkedOutBookList.add(book);
+                availableBookList.remove(book);
+                return true;
+            }
         }
         return false;
     }

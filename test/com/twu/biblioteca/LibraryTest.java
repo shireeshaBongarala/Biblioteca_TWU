@@ -18,7 +18,7 @@ public class LibraryTest {
         assertFalse(books.isEmpty());
     }
     @Test
-    public void shouldAddToBookListWhenItIsValidCheckedOutBook() {
+    public void shouldAddToAvialableBookListWhenItIsValidCheckedOutBook() {
         Library library = new Library();
 
         String bookName = "Let Us C";
@@ -26,6 +26,14 @@ public class LibraryTest {
         assertThat(library.addToAvailableBookList(bookName),is(true));
     }
 
+    @Test
+    public void shouldCheckOutBookFromAvailableBookListWhenBookIsValidAvaialbleBook() {
+        Library library = new Library();
+
+        String bookName = "C++";
+
+        assertThat(library.addToCheckedOutBookList(bookName),is(true));
+    }
 }
 
 
