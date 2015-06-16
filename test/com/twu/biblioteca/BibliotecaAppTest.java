@@ -26,6 +26,8 @@ public class BibliotecaAppTest {
     private CheckOut checkOutMock;
     @Mock
     private Books booksMock;
+    @Mock
+    private Movies moviesMock;
 
     @Test
     public void shouldDisplayListOfBooksWhenChoiceIsOne(){
@@ -34,7 +36,7 @@ public class BibliotecaAppTest {
         when(inputHandlerMock.readInteger()).thenReturn(1,1,1, 4);
 
         BibliotecaApp bibliotecaApp =
-                new BibliotecaApp(outputHandlerMock, inputHandlerMock, expectedBooks, returnBookMock, checkOutMock);
+                new BibliotecaApp(outputHandlerMock, inputHandlerMock, expectedBooks, returnBookMock, checkOutMock, moviesMock);
 
         bibliotecaApp.start();
 
@@ -50,7 +52,7 @@ public class BibliotecaAppTest {
                 .thenReturn(4);
 
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
-                outputHandlerMock, inputHandlerMock, expectedBooks , returnBookMock, checkOutMock);
+                outputHandlerMock, inputHandlerMock, expectedBooks , returnBookMock, checkOutMock,moviesMock);
         bibliotecaApp.start();
 
         verify(outputHandlerMock, atLeast(1)).display(Messages.QUIT_MESSAGE);
@@ -61,7 +63,7 @@ public class BibliotecaAppTest {
         Library library = new Library();
         Books expectedBooks = new Books(library.getAvailableBookList());
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
-                outputHandlerMock, inputHandlerMock, expectedBooks, returnBookMock, checkOutMock);
+                outputHandlerMock, inputHandlerMock, expectedBooks, returnBookMock, checkOutMock,moviesMock);
         when(inputHandlerMock.readInteger())
                 .thenReturn(8,4);
         bibliotecaApp.start();
@@ -72,7 +74,7 @@ public class BibliotecaAppTest {
     @Test
     public void shouldGetBookDetailsIfUserWantsToReturnABook() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
-                outputHandlerMock, inputHandlerMock, booksMock, returnBookMock, checkOutMock);
+                outputHandlerMock, inputHandlerMock, booksMock, returnBookMock, checkOutMock,moviesMock);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(2,4);
@@ -84,7 +86,7 @@ public class BibliotecaAppTest {
     @Test
     public void shouldCallCheckoutBookIfUserIsInterestedToCheckOutABook() {
         BibliotecaApp bibliotecaApp = new BibliotecaApp(
-                outputHandlerMock, inputHandlerMock, booksMock, returnBookMock, checkOutMock);
+                outputHandlerMock, inputHandlerMock, booksMock, returnBookMock, checkOutMock,moviesMock);
 
         when(inputHandlerMock.readInteger())
                 .thenReturn(1,4);

@@ -10,13 +10,14 @@ public class BibliotecaApp {
     ReturnBook returnBook;
     CheckOut checkout;
     Library library;
-
-    public BibliotecaApp(OutputHandler OutputHandler, InputHandler inputHandler, Books books,ReturnBook returnBook,CheckOut checkOut) {
+    Movies movies;
+    public BibliotecaApp(OutputHandler OutputHandler, InputHandler inputHandler, Books books,ReturnBook returnBook,CheckOut checkOut,Movies movies) {
         this.outputHandler = OutputHandler;
         this.inputHandler = inputHandler;
         this.books = books;
         this.returnBook = returnBook;
         this.checkout = checkOut;
+        this.movies = movies;
     }
 
     public void start() {
@@ -34,6 +35,9 @@ public class BibliotecaApp {
                     outputHandler.display(ENTER_BOOK_NAME_FOR_RETURNING);
                 returnBook.getBookDetails(outputHandler);
             }
+                else if(choice == 3){
+                    outputHandler.display(movies);
+                }
             else if (choice == 4)
                 outputHandler.display(QUIT_MESSAGE);
 

@@ -8,9 +8,12 @@ public class EntryPoint {
         OutputHandler OutputHandler = new OutputHandler(new PrintStream(System.out));
         InputHandler inputHandler = new InputHandler(System.in);
         Library library = new Library();
+        ArrayList<Movie> movieList = new ArrayList<Movie>();
+        movieList.add(new Movie("IronMan",2000,"James",9));
+        Movies movies = new Movies(movieList);
         new BibliotecaApp(
                 new OutputHandler(new PrintStream(System.out)),
                 inputHandler,
-                new Books(library.getAvailableBookList()), new ReturnBook(System.in,library), new CheckOut(OutputHandler, inputHandler,library)).start();
+                new Books(library.getAvailableBookList()), new ReturnBook(System.in,library), new CheckOut(OutputHandler, inputHandler,library),movies).start();
     }
 }
