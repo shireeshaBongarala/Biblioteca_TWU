@@ -21,16 +21,6 @@ public class ReturnBookTest {
     @Mock
     private Library libraryMock;
 
-//
-//    @Test
-//    public void shouldPromptTheUserToEnterTheBookName() {
-//        ReturnBook returnBook = new ReturnBook(new ByteArrayInputStream("C Balagurusamy".getBytes()));
-//
-//        returnBook.getBookDetails(outputHandlerMock);
-//
-//        verify(outputHandlerMock).display(ENTER_BOOK_NAME_FOR_RETURNING);
-//    }
-
     @Test
     public void shouldAddABookIfItIsValidBookToBeReturned() {
         Library library = new Library();

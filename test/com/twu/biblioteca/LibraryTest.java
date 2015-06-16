@@ -23,7 +23,7 @@ public class LibraryTest {
 
         String bookName = "Let Us C";
 
-        assertThat(library.addToAvailableBookList(bookName),is(true));
+        assertThat(library.additionToAvailableBookListIsSuccessful(bookName),is(true));
     }
 
     @Test

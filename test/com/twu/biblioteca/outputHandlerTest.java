@@ -33,7 +33,8 @@ public class outputHandlerTest {
 
     @Test
     public void testToCheckIfListOfBooksAreDisplayedOnConsole() {
-        OutputHandler.display(new Books(EntryPoint.initializeListOfBooks()));
+        Library library = new Library();
+        OutputHandler.display(new Books(library.getAvailableBookList()));
 
         String actualListOfBooks = "C Balagurusamy    Balagurusamy    1990\n" +
                 "C++    Balagurusamy    1995\n" +

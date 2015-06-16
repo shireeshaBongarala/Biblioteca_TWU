@@ -17,7 +17,7 @@ public class Library {
         return availableBookList;
     }
 
-    public boolean addToAvailableBookList(String bookName) {
+    public boolean additionToAvailableBookListIsSuccessful(String bookName) {
         for(Book book : checkedOutBookList) {
             if (book.getName().equals(bookName)) {
                 availableBookList.add(book);
@@ -27,7 +27,6 @@ public class Library {
         }
         return false;
     }
-
     public boolean additionToCheckedOutBookListIsSuccessful(String bookName) {
         for(Book book : availableBookList){
             if(book.getName().equals(bookName)) {

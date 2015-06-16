@@ -17,7 +17,7 @@ public class ReturnBook {
 
     public void getBookDetails(OutputHandler outputHandler) {
         String bookName = scanner.nextLine();
-        if(library.addToAvailableBookList(bookName)) {
+        if(library.additionToAvailableBookListIsSuccessful(bookName)) {
             outputHandler.display(SUCCESSFUL_BOOK_RETURN);
         }
         else {
